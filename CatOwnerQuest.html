@@ -5,106 +5,129 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1864/1864643.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap&subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="shortcut icon" href="assets/img/laughing.png" type="img/png">
     <title>Cat Owner Questionnaire</title>
 </head>
 
 <body>
-    <div><img src="https://cdn-icons-png.flaticon.com/512/4213/4213672.png" alt="Эмблема клуба владедьцев кошек"
-            width="300"></div>
-    <form>
-        <h1 style="color: darkcyan;">Анкета владельца кошки</h1>
-        <fieldset>
-            <legend style="color:mediumvioletred;"><b>Сведения о владельце</b></legend>
-            <div>
-                <label for="firstname">Имя</label>
-                <input type="text" id="firstname" />
-            </div>
-            <div>
-                <label for="lastname">Фамилия</label>
-                <input type="text" id="lastname" />
-            </div>
-            <br />
-            <fieldset>
-                <div>
-                    <b>Адрес</b><br />
-                    <label for="street">Улица</label>
-                    <input type="text" id="street" />
-                    <label for="house">Дом</label>
-                    <input type="text" id="house" />
-                    <label for="flat">Квартира</label>
-                    <input type="text" id="flat" /><br>
-                    <label for="city">Город</label>
-                    <input type="text" id="city" />
-                    <label for="postalcode">Индекс</label>
-                    <input type="text" id="postalcode" />
+    <div class="wrapper">
+        <header></header>
+        <main>
+            <form class="form">
+                <div class="form__image">
+                    <img src="assets/img/cat-lover.png" alt="Эмблема клуба владедьцев кошек" class="form__image">
                 </div>
-            </fieldset>
-            <br />
-            <div>
-                <label for="E-mail">E-mail</label>
-                <input type="text" id="E-mail" />
-            </div>
-            <div>
-                <label for="phone">Телефон</label>
-                <input type="text" id="phone" />
-            </div>
-        </fieldset>
-        <br /><br />
-        <fieldset>
-            <legend style="color:mediumvioletred;"><b>Сведения о питомце</b></legend>
-            <div>
-                <label for="petname">Кличка</label>
-                <input type="text" id="petname" />
-            </div>
-            <br />
-            <div>
-                <label for="race">Порода</label>
-                <select id="race">
-                    <option value="1">Абиссинская</option>
-                    <option value="2">Американская короткошерстная</option>
-                    <option value="3">Бенгальская</option>
-                    <option value="4">Бирманская</option>
-                    <option value="5">Гималайская</option>
-                    <option value="6">Девон-рекс</option>
-                    <option value="7">Мейн-кун</option>
-                    <option value="8">Ориентальная кошка</option>
-                    <option value="9">Персидская</option>
-                    <option value="10">Рэгдолл</option>
-                    <option value="11">Сиамская</option>
-                    <option value="12">Сфинкс</option>
-                </select>
-            </div><br />
-            <div>
-                <label for="food">Питание</label><br />
-                <input type="checkbox" id="food" name="food" value="1" />
-                Сухой корм<br />
-                <input type="checkbox" name="food" value="2" />
-                Влажный корм<br />
-                <input type="checkbox" name="food" value="3" />
-                Натуральный корм
-            </div>
-            <br />
-            <label for="sex">Пол</label><br />
-            <input type="radio" id="sex" name="sex" value="m" />Самец <br />
-            <input type="radio" name="sex" value="f" />Самка
-        </fieldset>
-        <br />
-        <div>
-            <textarea rows="10" cols="80">Ваш комментарий</textarea>
-        </div>
-        <br /><br />
-        <div>
-            <label for="photo">Приложить фото питомца</label>
-            <input type="file" id="photo" />
-        </div>
-        <br /><br />
-        <div>
-            <button>Сохранить</button><br />
-            <i>Нажимая на кнопку "Сохранить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
-                    href=""> Политикой конфиденциальности</a> </i>
-        </div>
-    </form>
+                <h1 class="form__title">Анкета владельца кошки</h1>
+
+                <fieldset class="form__fielset">
+                    <legend class="form__legend">Сведения о владельце</legend>
+                    <div class="form__item">
+                        <label class="form__label" for="firstname">Имя</label>
+                        <input class="form__input" type="text" id="firstname"/>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__label" for="lastname">Фамилия</label>
+                        <input class="form__input" type="text" id="lastname" />
+                    </div>
+                    <fieldset class="form__fielset fieldset_color-cyan">
+                        <legend class="form__legend legend_color-cyan">Сведения о владельце</legend>
+                        <div class="form__item">
+                            <label class="form__label" for="street">Улица</label>
+                            <input class="form__input" type="text" id="street" />
+                        </div>
+                        <div class="form__item">
+                            <label class="form__label" for="house">Дом</label>
+                            <input class="form__input" type="text" id="house" />
+                        </div>
+                        <div class="form__item">
+                            <label class="form__label" for="flat">Квартира</label>
+                            <input class="form__input" type="text" id="flat" />
+                        </div>
+                        <div class="form__item">
+                            <label class="form__label" for="city">Город</label>
+                            <input class="form__input" type="text" id="city" />
+                        </div>
+                        <div class="form__item">
+                            <label class="form__label" for="postalcode">Индекс</label>
+                            <input class="form__input" type="text" id="postalcode" />
+                        </div>
+                    </fieldset>
+                    <div class="form__item">
+                        <label class="form__label" for="E-mail">Эл.почта</label>
+                        <input class="form__input" type="text" id="E-mail" />
+                    </div>
+                    <div class="form__item">
+                        <label class="form__label" for="phone">Телефон</label>
+                        <input class="form__input" type="text" id="phone" />
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__fielset">
+                    <legend class="form__legend">Сведения о питомце</legend>
+                    <div class="form__item">
+                        <label class="form__label" for="petname">Кличка</label>
+                        <input class="form__input" type="text" id="petname" />
+                    </div>
+                    <div class="form__item">
+                        <label class="form__label" for="race">Порода</label>
+                        <select id="race" class="form__select">
+                            <option value="1">Абиссинская</option>
+                            <option value="2">Американская короткошерстная</option>
+                            <option value="3">Бенгальская</option>
+                            <option value="4">Бирманская</option>
+                            <option value="5">Гималайская</option>
+                            <option value="6">Девон-рекс</option>
+                            <option value="7">Мейн-кун</option>
+                            <option value="8">Ориентальная кошка</option>
+                            <option value="9">Персидская</option>
+                            <option value="10">Рэгдолл</option>
+                            <option value="11">Сиамская</option>
+                            <option value="12">Сфинкс</option>
+                        </select>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__label" for="food">Питание</label>
+                        <div class="form__checkbox">
+                            <input type="checkbox" id="food" name="food" value="1" />
+                        Сухой корм
+                            <input type="checkbox" name="food" value="2" />
+                        Влажный корм
+                            <input type="checkbox" name="food" value="3" />
+                        Натуральный корм
+                        </div>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__label" for="sex">Пол</label>
+                        <div class="form__checkbox">
+                            <input type="radio" id="sex" name="sex" value="m" />Самец
+                            <input type="radio" name="sex" value="f" />Самка
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form__legend legend_color-cyan comment__label" for="comment">Ваш комментарий</label>
+                        <textarea class="form__fielset fieldset_color-cyan textarea" id="comment"></textarea>
+                    </div>
+                    <div class="form__attachement">
+                        <label class="form__label" for="photo">Приложить фото питомца</label>
+                        <input type="file" id="photo" />
+                    </div>
+                </fieldset>
+
+                <div class="form__buttons">
+                    <button class="button button_color-cyan">Отправить</button>
+                    <button class="button button_color-violetred">Сбросить</button>
+                </div>
+                <p>Нажимая на кнопку "Сохранить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
+                    href=""> Политикой конфиденциальности</a> </p>
+            </form>
+        </main>
+        <footer></footer>
+    </div>
 </body>
 
 </html>

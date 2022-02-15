@@ -1,0 +1,209 @@
+/* - Позиционирование -------------------------------------- */
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.form * {
+    outline: none;
+}
+
+.form {
+    max-width: 600px;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.form__item {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.form__input, .form__select {
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.form__checkbox {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    width: 80%;
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.form__checkbox input:not(:first-child) {
+    margin: 0px 5px 0px 28px;
+}
+
+/* - Типографика ------------------------------------------- */
+html,
+body {
+    height: 100%;
+    min-width: 350px;
+    line-height: 160%;
+    font-size: 16px;
+    color: #3D3E50;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.form__title {
+    font-size: 18px;
+    color: darkcyan;
+    letter-spacing: 0.1em ;
+    line-height: 180%;
+    margin: 0px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form__fielset {
+    border: solid 1px mediumvioletred;
+    border-radius: 8px;
+    width:100%;
+    margin-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.fieldset_color-cyan {
+    border: solid 1px darkcyan;
+    width:95%;
+}
+
+.form__legend {
+    font-size: 18px;
+    color:mediumvioletred;
+    font-weight: bold;
+}
+
+.legend_color-cyan {
+    color:darkcyan;
+    font-weight: bold;
+}
+
+.form__input, .form__select {
+    color: #3D3E50;
+    width: 80%;
+    box-sizing: border-box;
+    padding: 12px 12px 8px 12px;
+    border: solid 1px #3D3E50;
+    border-radius: 8px;
+    transition: all 0.5s ease 0s;
+}
+
+.form__input:focus, .form__select:focus {
+    border: solid 1px darkcyan;
+}
+
+.form__label {
+    color: #3D3E50;
+    margin-right: 0px 12px;
+    justify-content: right;
+}
+
+.form__select option {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
+    color: #3D3E50;
+}
+
+.comment__label{
+    position: relative;
+    top: 26px;
+    left: 10px;
+    background-color: #FFFFFF;
+    padding: 0px 5px;
+}
+
+.textarea {
+    width: 99%;
+    min-height: 100px;
+}
+
+.form__attachement {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__attachement label {
+    margin-bottom: 12px;
+}
+
+.form__buttons {
+    display: inline-flex;
+    margin-top: 24px;
+}
+
+p{
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
+/* - Оформление: ссылки, кнопки ---------------------------- */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color:#FFFFFF;
+    text-transform: uppercase;
+    border-radius: 8px;
+    padding: 13px 30px;
+    min-width: 60px;
+    cursor: pointer;
+    transition: background-color 0.5s ease 0s;
+    box-shadow: 0 2px 0 #23262f3b;
+}
+
+.button_color-cyan {
+    background-color: darkcyan;
+}
+
+.button_color-violetred {
+    background-color: mediumvioletred;
+    margin-left: 24px;
+}
+
+.button_color-cyan:hover {
+    background-color: rgb(94, 221, 221);
+}
+
+.button_color-violetred:hover {
+    background-color: rgb(245, 105, 193);
+}
+
+/* - Оформление: картинки ---------------------------------- */
+.form__image {
+    max-width: 300px;
+}
+
+/* - Медиазапросы ------------------------------------------ */
+
+@media screen and (max-width: 614px) {
+
+    .fieldset_color-cyan {
+        border: solid 1px darkcyan;
+        width:92%;
+        justify-self: center;
+    }
+
+    .form__checkbox {
+        display: inline-flex;
+    }
+
+    .textarea {
+        width: 99%;
+    }
+
+}
