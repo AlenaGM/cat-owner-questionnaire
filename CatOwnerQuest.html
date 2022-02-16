@@ -16,9 +16,8 @@
 
 <body>
     <div class="wrapper">
-        <header></header>
-        <main>
-            <form class="form">
+        <div class="form">
+            <form action="#" id="form"class="form__body">
                 <div class="form__image">
                     <img src="assets/img/cat-lover.png" alt="Эмблема клуба владедьцев кошек" class="form__image">
                 </div>
@@ -26,56 +25,62 @@
 
                 <fieldset class="form__fielset">
                     <legend class="form__legend">Сведения о владельце</legend>
+
                     <div class="form__item">
-                        <label class="form__label" for="firstname">Имя</label>
-                        <input class="form__input" type="text" id="firstname"/>
+                        <label for="firstname" class="form__label" >Имя *</label>
+                        <input id="firstname"  type="text" name="firstname" class="form__input"/>
                     </div>
                     <div class="form__item">
-                        <label class="form__label" for="lastname">Фамилия</label>
-                        <input class="form__input" type="text" id="lastname" />
+                        <label for="lastname" class="form__label" >Фамилия *</label>
+                        <input id="lastname" type="text" name="lastname" class="form__input"/>
                     </div>
+
                     <fieldset class="form__fielset fieldset_color-cyan">
-                        <legend class="form__legend legend_color-cyan">Сведения о владельце</legend>
+                        <legend class="form__legend legend_color-cyan">Адрес</legend>
+
                         <div class="form__item">
-                            <label class="form__label" for="street">Улица</label>
-                            <input class="form__input" type="text" id="street" />
+                            <label for="street" class="form__label" >Улица *</label>
+                            <input id="street" type="text" name="street" class="form__input"/>
                         </div>
                         <div class="form__item">
-                            <label class="form__label" for="house">Дом</label>
-                            <input class="form__input" type="text" id="house" />
+                            <label for="house" class="form__label">Дом *</label>
+                            <input id="house" type="text" name="house" class="form__input"/>
                         </div>
                         <div class="form__item">
-                            <label class="form__label" for="flat">Квартира</label>
-                            <input class="form__input" type="text" id="flat" />
+                            <label for="flat" class="form__label">Квартира</label>
+                            <input id="flat" type="number" name="flat" class="form__input"/>
                         </div>
                         <div class="form__item">
-                            <label class="form__label" for="city">Город</label>
-                            <input class="form__input" type="text" id="city" />
+                            <label for="city" class="form__label">Город *</label>
+                            <input id="city" type="text" name="city" class="form__input"/>
                         </div>
                         <div class="form__item">
-                            <label class="form__label" for="postalcode">Индекс</label>
-                            <input class="form__input" type="text" id="postalcode" />
+                            <label for="postalcode" class="form__label">Индекс *</label>
+                            <input id="postalcode" type="text" id="postalcode" class="form__input"/>
                         </div>
                     </fieldset>
+
                     <div class="form__item">
-                        <label class="form__label" for="E-mail">Эл.почта</label>
-                        <input class="form__input" type="text" id="E-mail" />
+                        <label for="email" class="form__label">Эл.почта *</label>
+                        <input id="email" type="email" name="email" class="form__input"/>
                     </div>
                     <div class="form__item">
-                        <label class="form__label" for="phone">Телефон</label>
-                        <input class="form__input" type="text" id="phone" />
+                        <label for="phone" class="form__label">Телефон</label>
+                        <input id="phone" type="tel" name="phone" class="form__input"/>
                     </div>
                 </fieldset>
 
                 <fieldset class="form__fielset">
                     <legend class="form__legend">Сведения о питомце</legend>
+
                     <div class="form__item">
-                        <label class="form__label" for="petname">Кличка</label>
-                        <input class="form__input" type="text" id="petname" />
+                        <label for="petname" class="form__label">Кличка</label>
+                        <input id="petname" type="text" name="petname" class="form__input"/>
                     </div>
+
                     <div class="form__item">
-                        <label class="form__label" for="race">Порода</label>
-                        <select id="race" class="form__select">
+                        <div class="form__label">Порода</div>
+                        <select name="race" class="form__select">
                             <option value="1">Абиссинская</option>
                             <option value="2">Американская короткошерстная</option>
                             <option value="3">Бенгальская</option>
@@ -90,43 +95,68 @@
                             <option value="12">Сфинкс</option>
                         </select>
                     </div>
+
                     <div class="form__item">
-                        <label class="form__label" for="food">Питание</label>
+                        <div class="form__label">Питание</div>
+
                         <div class="form__checkbox">
-                            <input type="checkbox" id="food" name="food" value="1" />
-                        Сухой корм
-                            <input type="checkbox" name="food" value="2" />
-                        Влажный корм
-                            <input type="checkbox" name="food" value="3" />
-                        Натуральный корм
+                            <div class="checkbox__item">
+                                <input id="dryfood" type="checkbox" name="food" class="checkbox__input">
+                                <label for="dryfood" class="checkbox__label">Сухой корм</label>
+                            </div>
+                            <div class="checkbox__item">
+                                <input id="wetfood" type="checkbox" name="food" class="checkbox__input"/>
+                                <label for="wetfood" class="checkbox__label">Влажный корм</label>
+                            </div>
+                            <div class="checkbox__item">
+                                <input id="naturalfood" type="checkbox" name="food" class="checkbox__input"/>
+                                <label for="naturalfood" class="checkbox__label">Натуральный корм</label>
+                            </div>
                         </div>
                     </div>
+
                     <div class="form__item">
-                        <label class="form__label" for="sex">Пол</label>
-                        <div class="form__checkbox">
-                            <input type="radio" id="sex" name="sex" value="m" />Самец
-                            <input type="radio" name="sex" value="f" />Самка
+                        <div class="form__label">Пол</div>
+
+                        <div class="form__radio">
+                            <div class="radio__item">
+                                <input id="male" type="radio" name="sex" value="m" class="radio__input" checked/>
+                                <label for="male" class="radio__label" >Самец</label>
+                            </div>
+                            <div class="radio__item">
+                                <input id="female" type="radio" name="sex" value="f" class="radio__input"/>
+                                <label for="female" class="radio__label">Самка</label>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <label class="form__legend legend_color-cyan comment__label" for="comment">Ваш комментарий</label>
-                        <textarea class="form__fielset fieldset_color-cyan textarea" id="comment"></textarea>
+
+                    <div class="form__item form__comment">
+                        <label for="comment" class="form__legend legend_color-cyan comment__label">Ваш комментарий</label>
+                        <textarea id="comment" name="comment" class="form__fielset fieldset_color-cyan comment"></textarea>
                     </div>
-                    <div class="form__attachement">
-                        <label class="form__label" for="photo">Приложить фото питомца</label>
-                        <input type="file" id="photo" />
+
+                    <div class="form__item">
+                        <div for="photo" class="form__label">Приложить фото питомца</div>
+                        <div class="file">
+                            <div class="file__item">
+                                <input id="formphoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input"/>
+                                <div class="file__button button button_color-cyan">Выбрать</div>
+                            </div>
+                            <div class="file__preview"></div>
+                        </div>
                     </div>
+
                 </fieldset>
 
                 <div class="form__buttons">
-                    <button class="button button_color-cyan">Отправить</button>
-                    <button class="button button_color-violetred">Сбросить</button>
+                    <button type="submit" class="button button_color-cyan">Отправить</button>
+                    <button type="reset" class="button button_color-violetred">Сбросить</button>
                 </div>
-                <p>Нажимая на кнопку "Сохранить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
-                    href=""> Политикой конфиденциальности</a> </p>
+                <p class="agreement">Нажимая на кнопку "Сохранить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
+                    href=""> Политикой конфиденциальности</a></p>
             </form>
-        </main>
-        <footer></footer>
+
+        </div>
     </div>
 </body>
 
