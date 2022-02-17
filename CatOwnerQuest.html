@@ -28,11 +28,11 @@
 
                     <div class="form__item">
                         <label for="firstname" class="form__label" >Имя *</label>
-                        <input id="firstname"  type="text" name="firstname" class="form__input"/>
+                        <input id="firstname"  type="text" name="firstname" class="form__input" value="" tabindex="1"/>
                     </div>
                     <div class="form__item">
                         <label for="lastname" class="form__label" >Фамилия *</label>
-                        <input id="lastname" type="text" name="lastname" class="form__input"/>
+                        <input id="lastname" type="text" name="lastname" class="form__input" value="" tabindex="2"/>
                     </div>
 
                     <fieldset class="form__fielset fieldset_color-cyan">
@@ -40,33 +40,33 @@
 
                         <div class="form__item">
                             <label for="street" class="form__label" >Улица *</label>
-                            <input id="street" type="text" name="street" class="form__input"/>
+                            <input id="street" type="text" name="street" class="form__input" value="" tabindex="3"/>
                         </div>
                         <div class="form__item">
                             <label for="house" class="form__label">Дом *</label>
-                            <input id="house" type="text" name="house" class="form__input"/>
+                            <input id="house" type="text" name="house" class="form__input" value="" tabindex="4"/>
                         </div>
                         <div class="form__item">
                             <label for="flat" class="form__label">Квартира</label>
-                            <input id="flat" type="number" name="flat" class="form__input"/>
+                            <input id="flat" type="number" name="flat" class="form__input" value="" tabindex="5"/>
                         </div>
                         <div class="form__item">
                             <label for="city" class="form__label">Город *</label>
-                            <input id="city" type="text" name="city" class="form__input"/>
+                            <input id="city" type="text" name="city" class="form__input" value="" tabindex="6"/>
                         </div>
                         <div class="form__item">
                             <label for="postalcode" class="form__label">Индекс *</label>
-                            <input id="postalcode" type="text" id="postalcode" class="form__input"/>
+                            <input id="postalcode" type="text" id="postalcode" class="form__input" value="" tabindex="7"/>
                         </div>
                     </fieldset>
 
                     <div class="form__item">
                         <label for="email" class="form__label">Эл.почта *</label>
-                        <input id="email" type="email" name="email" class="form__input"/>
+                        <input id="email" type="email" name="email" class="form__input" value="" tabindex="8"/>
                     </div>
                     <div class="form__item">
                         <label for="phone" class="form__label">Телефон</label>
-                        <input id="phone" type="tel" name="phone" class="form__input"/>
+                        <input id="phone" type="tel" name="phone" class="form__input" value="" tabindex="9"/>
                     </div>
                 </fieldset>
 
@@ -75,24 +75,24 @@
 
                     <div class="form__item">
                         <label for="petname" class="form__label">Кличка</label>
-                        <input id="petname" type="text" name="petname" class="form__input"/>
+                        <input id="petname" type="text" name="petname" class="form__input" value="" tabindex="10"/>
                     </div>
 
                     <div class="form__item">
                         <div class="form__label">Порода</div>
-                        <select name="race" class="form__select">
-                            <option value="1">Абиссинская</option>
-                            <option value="2">Американская короткошерстная</option>
-                            <option value="3">Бенгальская</option>
-                            <option value="4">Бирманская</option>
-                            <option value="5">Гималайская</option>
-                            <option value="6">Девон-рекс</option>
-                            <option value="7">Мейн-кун</option>
-                            <option value="8">Ориентальная кошка</option>
-                            <option value="9">Персидская</option>
-                            <option value="10">Рэгдолл</option>
-                            <option value="11">Сиамская</option>
-                            <option value="12">Сфинкс</option>
+                        <select name="race" class="form__select" tabindex="11">
+                            <option value="Abyssinian">Абиссинская</option>
+                            <option value="American Shorthair">Американская короткошерстная</option>
+                            <option value="Bengalian">Бенгальская</option>
+                            <option value="Birman">Бирманская</option>
+                            <option value="Himalayan">Гималайская</option>
+                            <option value="Devon Rex">Девон-рекс</option>
+                            <option value="Maine Coon">Мейн-кун</option>
+                            <option value="Oriental">Ориентальная кошка</option>
+                            <option value="Persian">Персидская</option>
+                            <option value="Ragdoll">Рэгдолл</option>
+                            <option value="Siamese">Сиамская</option>
+                            <option value="Sphinx">Сфинкс</option>
                         </select>
                     </div>
 
@@ -101,15 +101,15 @@
 
                         <div class="form__checkbox">
                             <div class="checkbox__item">
-                                <input id="dryfood" type="checkbox" name="food" class="checkbox__input">
+                                <input id="dryfood" type="checkbox" name="food" class="checkbox__input" value="dryfood" tabindex="12">
                                 <label for="dryfood" class="checkbox__label">Сухой корм</label>
                             </div>
                             <div class="checkbox__item">
-                                <input id="wetfood" type="checkbox" name="food" class="checkbox__input"/>
+                                <input id="wetfood" type="checkbox" name="food" class="checkbox__input" value="wetfood" tabindex="13"/>
                                 <label for="wetfood" class="checkbox__label">Влажный корм</label>
                             </div>
                             <div class="checkbox__item">
-                                <input id="naturalfood" type="checkbox" name="food" class="checkbox__input"/>
+                                <input id="naturalfood" type="checkbox" name="food" class="checkbox__input" value="naturalfood" tabindex="14"/>
                                 <label for="naturalfood" class="checkbox__label">Натуральный корм</label>
                             </div>
                         </div>
@@ -120,11 +120,11 @@
 
                         <div class="form__radio">
                             <div class="radio__item">
-                                <input id="male" type="radio" name="sex" value="m" class="radio__input" checked/>
+                                <input id="male" type="radio" name="sex" value="male" class="radio__input" tabindex="15" checked/>
                                 <label for="male" class="radio__label" >Самец</label>
                             </div>
                             <div class="radio__item">
-                                <input id="female" type="radio" name="sex" value="f" class="radio__input"/>
+                                <input id="female" type="radio" name="sex" value="female" class="radio__input" tabindex="15"/>
                                 <label for="female" class="radio__label">Самка</label>
                             </div>
                         </div>
@@ -132,14 +132,14 @@
 
                     <div class="form__item form__comment">
                         <label for="comment" class="form__legend legend_color-cyan comment__label">Ваш комментарий</label>
-                        <textarea id="comment" name="comment" class="form__fielset fieldset_color-cyan comment"></textarea>
+                        <textarea id="comment" name="comment" class="form__fielset fieldset_color-cyan comment" tabindex="16"></textarea>
                     </div>
 
                     <div class="form__item">
                         <div for="photo" class="form__label">Приложить фото питомца</div>
                         <div class="file">
                             <div class="file__item">
-                                <input id="formphoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input"/>
+                                <input id="formphoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input" tabindex="17"/>
                                 <div class="file__button button button_color-gray">Выбрать</div>
                             </div>
                             <div class="file__preview"></div>
@@ -149,15 +149,16 @@
                 </fieldset>
 
                 <div class="form__buttons">
-                    <button type="submit" class="button button_color-cyan">Отправить</button>
+                    <button id="sendForm" type="submit" class="button button_color-cyan">Отправить</button>
                     <button type="reset" class="button button_color-violetred">Сбросить</button>
                 </div>
-                <p class="agreement">Нажимая на кнопку "Сохранить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
+                <p class="agreement">Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
                     href=""> Политикой конфиденциальности</a></p>
             </form>
 
         </div>
     </div>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

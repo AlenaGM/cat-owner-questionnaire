@@ -14,16 +14,17 @@ body {
 }
 
 .form {
+    max-width: 560px;
+    min-width: 300px;
+    margin: 0px auto;
+    padding: 5% 0;
 }
 
-.form__body * {
+.form * {
     outline: none;
 }
 
 .form__body {
-    max-width: 560px;
-    margin: 0px auto;
-    padding: 5% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +52,6 @@ body {
     margin-top: 16px;
     padding-bottom: 16px;
     margin-bottom: 16px;
-    box-shadow: 0 2px 0 #23262f3b;
 }
 
 .fieldset_color-cyan {
@@ -80,6 +80,7 @@ body {
     color: rgb(50, 140, 201);
     margin-right: 0px 12px;
     justify-content: right;
+    display: block;
 }
 
 .form__input, .form__select {
@@ -134,11 +135,12 @@ body {
 }
 
 .checkbox__label, .radio__label {
-
+    cursor: pointer;
 }
 
 .form__comment {
     display: block;
+    width: 92%;
 }
 
 .comment__label {
@@ -150,17 +152,28 @@ body {
 }
 
 .comment {
-    width: 99%;
-    min-height: 100px;
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    padding: 20px;
 }
 
 .file {
 }
 
 .file__item {
+    position: relative;
 }
 
 .file__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    font-size: 0;
+    cursor: pointer;
 }
 
 .file__button {
@@ -184,6 +197,13 @@ body {
     cursor: pointer;
     transition: background-color 0.5s ease 0s;
     box-shadow: 0 2px 0 #23262f3b;
+    position: relative;
+    top: 0;
+}
+
+.button:active {
+    top: 3px;
+    box-shadow: 0 0px 0 #23262f3b;
 }
 
 .button_color-gray {
@@ -213,6 +233,13 @@ body {
 }
 
 .file__preview {
+    display: inline-block;
+    max-width: 120px;
+    padding: 10px 0px 0px 0px;
+}
+
+.file__preview img {
+    max-width: 100%;
 }
 
 .agreement {
@@ -276,6 +303,10 @@ body {
 .form__checkbox, .form__radio {
     margin-top: 0px;
     margin-left: 12px;
+}
+
+.comment{
+    width: 94%;
 }
 
 }
