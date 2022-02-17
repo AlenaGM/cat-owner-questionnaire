@@ -99,6 +99,10 @@ body {
     border: solid 1px rgb(50, 140, 201);
 }
 
+.form__input:valid, .form__select:valid {
+    border: solid 1px darkcyan;
+}
+
 .form__select option {
     font-family: 'Didact Gothic', sans-serif;
     font-size: 16px;
@@ -259,6 +263,8 @@ body {
     font-size: 12px;
     text-align: center;
     line-height: 140%;
+    margin-top: 24px;
+    padding: 0px 24px;
 }
 
 .reqtext {
