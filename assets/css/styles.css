@@ -92,15 +92,18 @@ body {
     border-radius: 8px;
     margin-top: 12px;
     margin-left: 12px;
-    transition: all 0.5s ease 0s;
 }
 
 .form__input:focus, .form__select:focus {
     border: solid 1px rgb(50, 140, 201);
 }
 
-.form__input:valid, .form__select:valid {
-    border: solid 1px darkcyan;
+.radio__item:focus input, .radio__item:focus label, .checkbox__item:focus input, .checkbox__item:focus label {
+    color:rgb(50, 140, 201);
+}
+
+.form__input:required:valid {
+    background: url(/assets/img/check.svg) 98% center/18px no-repeat;
 }
 
 .form__select option {
@@ -222,7 +225,7 @@ body {
 }
 
 .button_color-cyan {
-    background-color: darkcyan;
+    background-color: #008b8b;
 }
 
 .button_color-violetred {

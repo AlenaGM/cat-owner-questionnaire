@@ -115,3 +115,54 @@ document.getElementById('petName').addEventListener('change', function() {//Им
 
     document.querySelector('#petName').value = petName;
 });
+
+//Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии ввод выбиралась опция
+function clickMale(event) {
+    if (event.keyCode == 13 && document.getElementById('male').hasAttribute("checked", "")) {
+        document.getElementById('male').removeAttribute("checked", "");
+        document.getElementById('female').setAttribute("checked", "");
+    } else {
+        document.getElementById('male').setAttribute("checked", "");
+        document.getElementById('female').removeAttribute("checked", "");
+    }
+};
+
+function clickFemale(event) {
+    if (event.keyCode == 13 && document.getElementById('female').hasAttribute("checked", "")) {
+        document.getElementById('female').removeAttribute("checked", "");
+        document.getElementById('male').setAttribute("checked", "");
+    } else {
+        document.getElementById('female').setAttribute("checked", "");
+        document.getElementById('male').removeAttribute("checked", "");
+    };
+};
+/*Пока не работает
+function clickDry(event) {
+    if (event.keyCode === 13 && document.getElementById('dryfood').hasAttribute("checked", "")) {
+        document.getElementById('dryfood').removeAttribute("checked", "");
+    } else {
+        document.getElementById('dryfood').setAttribute("checked", "");
+    };
+};
+
+function clickWet(event) {
+    if (event.keyCode === 13 && document.getElementById('wetfood').hasAttribute("checked", "")) {
+        document.getElementById('wetfood').removeAttribute("checked", "");
+    } else {
+        document.getElementById('wetfood').setAttribute("checked", "");
+    };
+};
+
+function clickNatural(event) {
+    if (event.keyCode === 13 && document.getElementById('naturalfood').hasAttribute("checked", "")) {
+        document.getElementById('naturalfood').removeAttribute("checked", "");
+    } else {
+        document.getElementById('naturalfood').setAttribute("checked", "");
+    };
+};*/
+
+
+
+/*
+console.log(/^([0-9а-яА-Я]{1,4})$/.test('а12'));
+*/

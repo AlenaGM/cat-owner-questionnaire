@@ -30,11 +30,11 @@
 
                     <div class="form__item">
                         <label for="firstName" class="form__label">Имя *</label>
-                        <input id="firstName"  type="text" name="firstname" class="form__input" tabindex="1" required/>
+                        <input id="firstName"  type="text" name="firstname" class="form__input" value="" maxlength="40" tabindex="1" required/>
                     </div>
                     <div class="form__item">
                         <label for="lastName" class="form__label" >Фамилия *</label>
-                        <input id="lastName" type="text" name="lastname" class="form__input" value="" tabindex="2" required/>
+                        <input id="lastName" type="text" name="lastname" class="form__input" value="" maxlength="40" tabindex="2" required/>
                     </div>
 
                     <fieldset class="form__fielset fieldset_color-cyan">
@@ -42,11 +42,13 @@
 
                         <div class="form__item">
                             <label for="street" class="form__label" >Улица *</label>
-                            <input id="street" type="text" name="street" class="form__input" value="" tabindex="3" required/>
+                            <input id="street" type="text" name="street" class="form__input" maxlength="132" value="" tabindex="3" required/>
+                            <!--Имя улицы в 132 буквы: Территория, изъятая из земель подсобного хозяйства Всесоюзного
+                                центрального совета профессиональных союзов для организации крестьянского хозяйства-->
                         </div>
                         <div class="form__item">
                             <label for="house" class="form__label">Дом *</label>
-                            <input id="house" type="text" name="house" class="form__input" value="" tabindex="4" required/>
+                            <input id="house" type="text" name="house" class="form__input" value="" maxlength="4" pattern="^[0-9\а-яА-Я\-\ ]{1,4}$" tabindex="4" required/>
                         </div>
                         <div class="form__item">
                             <label for="flat" class="form__label">Квартира</label>
@@ -54,11 +56,11 @@
                         </div>
                         <div class="form__item">
                             <label for="city" class="form__label">Город *</label>
-                            <input id="city" type="text" name="city" class="form__input" value="" tabindex="6" required/>
+                            <input id="city" type="text" name="city" class="form__input" value="" maxlength="40" tabindex="6" required/>
                         </div>
                         <div class="form__item">
                             <label for="postalcode" class="form__label">Индекс *</label>
-                            <input id="postalcode" type="number" max="700000" min="100000" id="postalcode" class="form__input" value="" tabindex="7" required/>
+                            <input id="postalcode" type="number" max="700000" min="100000" maxlength="6" class="form__input" value="" placeholder="101000" tabindex="7" required/>
                         </div>
                     </fieldset>
 
@@ -68,7 +70,7 @@
                     </div>
                     <div class="form__item">
                         <label for="phone" class="form__label">Телефон</label>
-                        <input id="phone" type="tel" name="phone" class="form__input" value="" tabindex="9"/>
+                        <input id="phone" type="tel" name="phone" class="form__input" value="" placeholder="+7 (123) 123-45-67" tabindex="9"/>
                     </div>
                 </fieldset>
 
@@ -77,7 +79,7 @@
 
                     <div class="form__item">
                         <label for="petName" class="form__label">Кличка *</label>
-                        <input id="petName" type="text" name="petname" class="form__input" value="" tabindex="10" required/>
+                        <input id="petName" type="text" name="petname" class="form__input" value="" maxlength="40" tabindex="10" required/>
                     </div>
 
                     <div class="form__item">
@@ -104,31 +106,31 @@
                         <div class="form__label">Питание</div>
 
                         <div class="form__checkbox">
-                            <div class="checkbox__item">
-                                <input id="dryfood" type="checkbox" name="food" class="checkbox__input" value="dryfood" tabindex="12">
+                            <div class="checkbox__item" tabindex="12">
+                                <input id="dryfood" type="checkbox" name="food" class="checkbox__input" value="dryfood">
                                 <label for="dryfood" class="checkbox__label">Сухой корм</label>
                             </div>
-                            <div class="checkbox__item">
-                                <input id="wetfood" type="checkbox" name="food" class="checkbox__input" value="wetfood" tabindex="13"/>
+                            <div class="checkbox__item" tabindex="13">
+                                <input id="wetfood" type="checkbox" name="food" class="checkbox__input" value="wetfood"/>
                                 <label for="wetfood" class="checkbox__label">Влажный корм</label>
                             </div>
-                            <div class="checkbox__item">
-                                <input id="naturalfood" type="checkbox" name="food" class="checkbox__input" value="naturalfood" tabindex="14"/>
+                            <div class="checkbox__item" tabindex="14">
+                                <input id="naturalfood" type="checkbox" name="food" class="checkbox__input" value="naturalfood"/>
                                 <label for="naturalfood" class="checkbox__label">Натуральный корм</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form__item">
-                        <div class="form__label">Пол</div>
+                        <div class="form__label">Пол *</div>
 
                         <div class="form__radio">
-                            <div class="radio__item">
-                                <input id="male" type="radio" name="sex" value="male" class="radio__input" tabindex="15" checked/>
-                                <label for="male" class="radio__label" >Самец</label>
+                            <div class="radio__item" tabindex="15" onkeydown="clickMale(event)">
+                                <input id="male" type="radio" name="sex" value="male" class="radio__input" required/>
+                                <label for="male" class="radio__label">Самец</label>
                             </div>
-                            <div class="radio__item">
-                                <input id="female" type="radio" name="sex" value="female" class="radio__input" tabindex="15"/>
+                            <div class="radio__item" tabindex="16" onkeydown="clickFemale(event)">
+                                <input id="female" type="radio" name="sex" value="female" class="radio__input" required/>
                                 <label for="female" class="radio__label">Самка</label>
                             </div>
                         </div>
