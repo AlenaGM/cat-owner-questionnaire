@@ -174,9 +174,11 @@ body {
     opacity: 0;
     font-size: 0;
     cursor: pointer;
+    z-index: 1;
 }
 
 .file__button {
+    display: inline-flex;
 }
 
 .form__buttons {
@@ -208,7 +210,11 @@ body {
 
 .button_color-gray {
     background-color: #828388;
-    padding: 7px 30px;
+    font-size: 14px;
+    padding: 0px;
+    width: 120px;
+    height: 30px;
+    margin-top: 12px;
 }
 
 .button_color-cyan {
@@ -232,6 +238,12 @@ body {
     background-color: rgb(245, 105, 193);
 }
 
+.form__file {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
 .file__preview {
     display: inline-block;
     max-width: 120px;
@@ -240,12 +252,20 @@ body {
 
 .file__preview img {
     max-width: 100%;
+    border-radius: 8px;
 }
 
 .agreement {
     font-size: 12px;
     text-align: center;
     line-height: 140%;
+}
+
+.reqtext {
+    font-size: 12px;
+    text-align: right;
+    line-height: 140%;
+    margin: -8px 0px 12px 0px;
 }
 
 /* - Медиазапросы ------------------------------------------ */

@@ -26,13 +26,15 @@
                 <fieldset class="form__fielset">
                     <legend class="form__legend">Сведения о владельце</legend>
 
+                    <p class="reqtext">* Поля, обязательные к заполнению</p>
+
                     <div class="form__item">
-                        <label for="firstname" class="form__label" >Имя *</label>
-                        <input id="firstname"  type="text" name="firstname" class="form__input" value="" tabindex="1"/>
+                        <label for="firstName" class="form__label" >Имя *</label>
+                        <input id="firstName"  type="text" name="firstname" class="form__input" tabindex="1"/>
                     </div>
                     <div class="form__item">
-                        <label for="lastname" class="form__label" >Фамилия *</label>
-                        <input id="lastname" type="text" name="lastname" class="form__input" value="" tabindex="2"/>
+                        <label for="lastName" class="form__label" >Фамилия *</label>
+                        <input id="lastName" type="text" name="lastname" class="form__input" value="" tabindex="2"/>
                     </div>
 
                     <fieldset class="form__fielset fieldset_color-cyan">
@@ -74,13 +76,15 @@
                     <legend class="form__legend">Сведения о питомце</legend>
 
                     <div class="form__item">
-                        <label for="petname" class="form__label">Кличка</label>
-                        <input id="petname" type="text" name="petname" class="form__input" value="" tabindex="10"/>
+                        <label for="petName" class="form__label">Кличка *</label>
+                        <input id="petName" type="text" name="petname" class="form__input" value="" tabindex="10"/>
                     </div>
 
                     <div class="form__item">
-                        <div class="form__label">Порода</div>
+                        <div class="form__label">Порода *</div>
                         <select name="race" class="form__select" tabindex="11">
+                            <option value="none" disabled selected>Выберите породу</option>
+                            <option value="unknown race">не знаю породы</option>
                             <option value="Abyssinian">Абиссинская</option>
                             <option value="American Shorthair">Американская короткошерстная</option>
                             <option value="Bengalian">Бенгальская</option>
@@ -116,7 +120,7 @@
                     </div>
 
                     <div class="form__item">
-                        <div class="form__label">Пол</div>
+                        <div class="form__label">Пол *</div>
 
                         <div class="form__radio">
                             <div class="radio__item">
@@ -135,22 +139,21 @@
                         <textarea id="comment" name="comment" class="form__fielset fieldset_color-cyan comment" tabindex="16"></textarea>
                     </div>
 
-                    <div class="form__item">
+                    <div class="form__item form__file">
                         <div for="photo" class="form__label">Приложить фото питомца</div>
                         <div class="file">
                             <div class="file__item">
-                                <input id="formphoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input" tabindex="17"/>
-                                <div class="file__button button button_color-gray">Выбрать</div>
+                                <input id="formPhoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input" tabindex="17"/>
+                                <div id="choosePhoto" class="file__button button button_color-gray">Выбрать</div>
                             </div>
-                            <div class="file__preview"></div>
+                            <div id="photoPreview" class="file__preview"></div>
                         </div>
                     </div>
-
                 </fieldset>
 
                 <div class="form__buttons">
                     <button id="sendForm" type="submit" class="button button_color-cyan">Отправить</button>
-                    <button type="reset" class="button button_color-violetred">Сбросить</button>
+                    <button id="resetForm" type="reset" class="button button_color-violetred">Сбросить</button>
                 </div>
                 <p class="agreement">Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
                     href=""> Политикой конфиденциальности</a></p>
