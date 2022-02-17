@@ -106,15 +106,15 @@
                         <div class="form__label">Питание</div>
 
                         <div class="form__checkbox">
-                            <div class="checkbox__item" tabindex="12">
+                            <div class="checkbox__item" id="drycheckbox" tabindex="12">
                                 <input id="dryfood" type="checkbox" name="food" class="checkbox__input" value="dryfood">
                                 <label for="dryfood" class="checkbox__label">Сухой корм</label>
                             </div>
-                            <div class="checkbox__item" tabindex="13">
+                            <div class="checkbox__item" id="wetcheckbox" tabindex="13">
                                 <input id="wetfood" type="checkbox" name="food" class="checkbox__input" value="wetfood"/>
                                 <label for="wetfood" class="checkbox__label">Влажный корм</label>
                             </div>
-                            <div class="checkbox__item" tabindex="14">
+                            <div class="checkbox__item" id="natcheckbox" tabindex="14">
                                 <input id="naturalfood" type="checkbox" name="food" class="checkbox__input" value="naturalfood"/>
                                 <label for="naturalfood" class="checkbox__label">Натуральный корм</label>
                             </div>
@@ -125,11 +125,11 @@
                         <div class="form__label">Пол *</div>
 
                         <div class="form__radio">
-                            <div class="radio__item" tabindex="15" onkeydown="clickMale(event)">
+                            <div class="radio__item" id="maleradio" tabindex="15">
                                 <input id="male" type="radio" name="sex" value="male" class="radio__input" required/>
                                 <label for="male" class="radio__label">Самец</label>
                             </div>
-                            <div class="radio__item" tabindex="16" onkeydown="clickFemale(event)">
+                            <div class="radio__item" id="femaleradio" tabindex="16">
                                 <input id="female" type="radio" name="sex" value="female" class="radio__input" required/>
                                 <label for="female" class="radio__label">Самка</label>
                             </div>

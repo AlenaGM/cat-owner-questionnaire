@@ -117,52 +117,52 @@ document.getElementById('petName').addEventListener('change', function() {//Им
 });
 
 //Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии ввод выбиралась опция
-function clickMale(event) {
-    if (event.keyCode == 13 && document.getElementById('male').hasAttribute("checked", "")) {
-        document.getElementById('male').removeAttribute("checked", "");
-        document.getElementById('female').setAttribute("checked", "");
-    } else {
-        document.getElementById('male').setAttribute("checked", "");
-        document.getElementById('female').removeAttribute("checked", "");
-    }
-};
 
-function clickFemale(event) {
-    if (event.keyCode == 13 && document.getElementById('female').hasAttribute("checked", "")) {
-        document.getElementById('female').removeAttribute("checked", "");
-        document.getElementById('male').setAttribute("checked", "");
-    } else {
-        document.getElementById('female').setAttribute("checked", "");
-        document.getElementById('male').removeAttribute("checked", "");
-    };
-};
-/*Пока не работает
-function clickDry(event) {
-    if (event.keyCode === 13 && document.getElementById('dryfood').hasAttribute("checked", "")) {
+document.querySelector('#drycheckbox').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter' && document.getElementById('dryfood').hasAttribute("checked", "")) {
         document.getElementById('dryfood').removeAttribute("checked", "");
-    } else {
+    } else if (e.key === 'Enter'){
         document.getElementById('dryfood').setAttribute("checked", "");
-    };
-};
+    } else {
+        console.log('просто нужно было сюда что-то запихать');
+    }
+});
 
-function clickWet(event) {
-    if (event.keyCode === 13 && document.getElementById('wetfood').hasAttribute("checked", "")) {
+document.querySelector('#wetcheckbox').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter' && document.getElementById('wetfood').hasAttribute("checked", "")) {
         document.getElementById('wetfood').removeAttribute("checked", "");
-    } else {
+    } else if (e.key === 'Enter'){
         document.getElementById('wetfood').setAttribute("checked", "");
-    };
-};
-
-function clickNatural(event) {
-    if (event.keyCode === 13 && document.getElementById('naturalfood').hasAttribute("checked", "")) {
-        document.getElementById('naturalfood').removeAttribute("checked", "");
     } else {
+        console.log('просто нужно было сюда что-то запихать');
+    }
+});
+
+document.querySelector('#natcheckbox').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter' && document.getElementById('naturalfood').hasAttribute("checked", "")) {
+        document.getElementById('naturalfood').removeAttribute("checked", "");
+    } else if (e.key === 'Enter'){
         document.getElementById('naturalfood').setAttribute("checked", "");
-    };
-};*/
+    } else {
+        console.log('просто нужно было сюда что-то запихать');
+    }
+});
+
+document.querySelector('#maleradio').addEventListener('keypress', function (e)  {
+    if (e.key === 'Enter' && document.getElementById('male').hasAttribute("checked", "")) {
+        document.getElementById('male').removeAttribute("checked", "");
+    } else {
+        document.getElementById('female').removeAttribute("checked", "");
+        document.getElementById('male').setAttribute("checked", "");
+    }
+});
 
 
-
-/*
-console.log(/^([0-9а-яА-Я]{1,4})$/.test('а12'));
-*/
+document.querySelector('#femaleradio').addEventListener('keypress', function (e)  {
+    if (e.key === 'Enter' && document.getElementById('female').hasAttribute("checked", "")) {
+        document.getElementById('female').removeAttribute("checked", "");
+    } else {
+        document.getElementById('male').removeAttribute("checked", "");
+        document.getElementById('female').setAttribute("checked", "");
+    }
+});
