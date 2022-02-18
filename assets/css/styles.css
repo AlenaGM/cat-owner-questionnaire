@@ -78,7 +78,7 @@ body {
 
 .form__label {
     color: rgb(50, 140, 201);
-    margin-right: 0px 12px;
+    margin-right: 12px;
     justify-content: right;
     display: block;
 }
@@ -130,15 +130,9 @@ body {
     align-items: center
 }
 
-.checkbox__input {
-}
-
 .radio__item {
     display: inline-flex;
     align-items: center
-}
-
-.radio__input {
 }
 
 .checkbox__label, .radio__label {
@@ -163,9 +157,6 @@ body {
     min-height: 120px;
     resize: vertical;
     padding: 20px;
-}
-
-.file {
 }
 
 .file__item {
@@ -308,41 +299,38 @@ body {
     .comment{
         width: 99%;
     }
-
 }
-
 
 @media screen and (max-width: 484px) {
 
-.form__item {
-    display: flex;
-    flex-direction: column;
-}
+    .form__item {
+        display: flex;
+        flex-direction: column;
+    }
 
-.form__title {
-    font-size: 18px;
-    margin: 12px 0px 0px 0px;
-}
+    .form__title {
+        font-size: 18px;
+        margin: 12px 0px 0px 0px;
+    }
 
-.form__input, .form__select {
-    width: 95%;
-    margin-top: 0px;
-    margin-left: 12px;
-}
+    .form__input, .form__select {
+        width: 95%;
+        margin-top: 0px;
+        margin-left: 12px;
+    }
 
-.form__label {
-    margin: 12px 0px 0px 14px;
-}
+    .form__label {
+        margin: 12px 0px 0px 14px;
+    }
 
-.form__checkbox, .form__radio {
-    margin-top: 0px;
-    margin-left: 12px;
-}
+    .form__checkbox, .form__radio {
+        margin-top: 0px;
+        margin-left: 12px;
+    }
 
-.comment{
-    width: 94%;
-}
-
+    .comment{
+        width: 94%;
+    }
 }
 
 
