@@ -36,11 +36,11 @@ body {
 }
 
 .form__title {
-    font-size: 18px;
+    font-size: 24px;
     color: darkcyan;
     letter-spacing: 0.1em ;
     line-height: 180%;
-    margin: 0px;
+    margin: 24px 0px 0px 0px;
     text-align: center;
     text-transform: uppercase;
 }
@@ -317,6 +317,11 @@ body {
 .form__item {
     display: flex;
     flex-direction: column;
+}
+
+.form__title {
+    font-size: 18px;
+    margin: 12px 0px 0px 0px;
 }
 
 .form__input, .form__select {

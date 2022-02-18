@@ -70,7 +70,7 @@
                     </div>
                     <div class="form__item">
                         <label for="phone" class="form__label">Телефон</label>
-                        <input id="phone" type="tel" name="phone" class="form__input" value="" placeholder="+7 (123) 123-45-67" tabindex="9"/>
+                        <input id="phone" type="tel" name="phone" class="form__input" value="" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" maxlength="13" tabindex="9"/>
                     </div>
                 </fieldset>
 
@@ -154,7 +154,7 @@
                 </fieldset>
 
                 <div class="form__buttons">
-                    <button id="sendForm" type="submit" class="button button_color-cyan">Отправить</button>
+                    <button id="sendForm" type="submit" class="button button_color-cyan" tabindex="18">Отправить</button>
                     <button id="resetForm" type="reset" class="button button_color-violetred">Сбросить</button>
                 </div>
                 <p class="agreement">Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c<a

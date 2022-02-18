@@ -166,3 +166,36 @@ document.querySelector('#femaleradio').addEventListener('keypress', function (e)
         document.getElementById('female').setAttribute("checked", "");
     }
 });
+
+//Чтобы тел. номер сразу был красивым, но в html валидация тоже есть
+
+document.querySelector('#phone').addEventListener('change', function validatePhone(){
+    const phone = document.querySelector('#phone').value;
+
+    var lengthPhone = phone.length;
+    var tt=phone.split('');
+
+    if(lengthPhone == 11){
+        tt.splice(1,"", "(");
+        tt.splice(5,"", ")");
+        tt.splice(9,"", "-");
+        tt.splice(12,"", "-");
+
+    } else if (lengthPhone == 12){
+    tt.splice(2,"", "(");
+    tt.splice(6,"", ")");
+    tt.splice(10,"", "-");
+    tt.splice(13,"", "-");
+
+    } else if (lengthPhone == 13){
+    tt.splice(3,"", "(");
+    tt.splice(7,"", ")");
+    tt.splice(11,"", "-");
+    tt.splice(14,"", "-");
+    };
+
+    let almostPhone = tt.join('');
+    document.querySelector('#phone').value = '+7'+ almostPhone.slice(-14);
+});
+
+
