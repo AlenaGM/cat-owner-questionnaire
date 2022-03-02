@@ -231,7 +231,7 @@ document.querySelector('#sendForm').addEventListener("click", (e) => {
     const comment = document.querySelector('#comment').value;
 
     let sex = '';
-    let food = '';
+    let initfood = '';
 
     for (let radio of maleFemale) {
         if (radio.checked) {
@@ -239,20 +239,23 @@ document.querySelector('#sendForm').addEventListener("click", (e) => {
         }
     }
 
+
+
     if(document.querySelector('#dryfood').checked){
-        food +=`,${document.querySelector('#dryfood').value}`;
-
-    } else if(document.querySelector('#wetfood').checked){
-        food +=`,${document.querySelector('#wetfood').value}`;
-
-    } else if(document.querySelector('#naturalfood').checked){
-        food +=`,${document.querySelector('#naturalfood').value}`;
-
-    } else {
-        food +=`,не выбрано`;
+        initfood +=`${document.querySelector('#dryfood').value}, `;
     }
 
-    food = food.slice(1).split(",");
+    if (document.querySelector('#wetfood').checked){
+        initfood += `${document.querySelector('#wetfood').value}, `;
+    }
+
+    if(document.querySelector('#naturalfood').checked){
+        initfood += document.querySelector('#naturalfood').value;
+    }
+
+    let food = initfood[0].toUpperCase()+initfood.slice(1).toLowerCase();
+
+    console.log(food);
 
     class Cat {
         constructor(name, race, sex, food, comment, photo) {
@@ -269,8 +272,72 @@ document.querySelector('#sendForm').addEventListener("click", (e) => {
     let myCat = new Cat(name, race, sex, food, comment, photo);
     console.log(myCat);
 
+    if(name && race && sex && food && comment && photo){
+        // Генерируем карточку и добавляем ее на страницу
+        const newCard = generateCard(name, race, sex, food, comment, photo)
+        document.querySelector('#cat').appendChild(newCard)
 
+        //Добавляем в хранилище
+        //addElementToLocalStorage(name, race, sex, food, comment, photo)
+    }
 
 });
+
+//ГЕНЕРИРУЕМ КАРТОЧКУ = СООБЩЕНИЕ НА ФОРУМЕ
+const generateCard = (name, race, sex, food, comment, photo) =>{
+
+    //Рисуем карточку
+    let card = document.createElement('div')
+    card.classList.add("card");
+
+    let card__image = document.createElement('img')
+    card__image.classList.add("card__image");
+    card__image.src = photo
+
+    let card__main = document.createElement('div')
+    card__main.classList.add("card__main")
+
+    let card__info = document.createElement('div')
+    card__info.classList.add("card__info")
+
+    let card__title = document.createElement('h3')
+    card__title.classList.add("card__title")
+    card__title.innerText = name
+
+    let card__race = document.createElement('div')
+    card__race.classList.add("card__race")
+    card__race.innerText = `Порода: ${race}`
+
+    let card__sex = document.createElement('div')
+    card__sex.classList.add("card__sex")
+    card__sex.innerText = `Пол: ${sex}`
+
+    let card__food = document.createElement('div')
+    card__food.classList.add("card__food")
+    card__food.innerText = `Питание: ${food}`
+
+    let card__text = document.createElement('p')
+    card__text.classList.add("card__text")
+    card__text.innerText = comment
+
+    let card__del = document.createElement('button')
+    card__del.classList.add("card__del");
+    card__del.innerHTML="Удалить"
+
+    card.appendChild(card__image)
+    card.appendChild(card__main)
+
+    card__main.appendChild(card__info)
+    card__main.appendChild(card__text)
+    card__main.appendChild(card__del)
+
+    card__info.appendChild(card__title)
+    card__info.appendChild(card__race)
+    card__info.appendChild(card__sex)
+    card__info.appendChild(card__food)
+
+
+    return card
+}
 
 //ЭЛЕКТРОННАЯ ПОЧТА
