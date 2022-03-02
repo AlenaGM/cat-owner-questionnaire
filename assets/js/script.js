@@ -188,15 +188,18 @@ document.querySelector('#phone').addEventListener('change', function validatePho
 // для Preview загруженной фотографии котика
 const formPhoto = document.getElementById('formPhoto');
 const photoPreview = document.getElementById('photoPreview');
+let photo;
 
 formPhoto.addEventListener('change', () => {
         uploadFile(formPhoto.files[0]);
     });
 
+
 function uploadFile(file) {
         let reader = new FileReader();
         reader.onload = function(e){
             photoPreview.innerHTML = `<img src='${e.target.result}' alt="photo"'>`
+            photo = e.target.result;
         };
 
         reader.readAsDataURL(file);
@@ -216,8 +219,8 @@ console.log(result);*/
 
 
 //НОВЫЙ КОД
-//КЛАСС КОТИК
 
+//КЛАСС КОТИК
 document.querySelector('#sendForm').addEventListener("click", (e) => {
 
     e.preventDefault();
@@ -252,18 +255,22 @@ document.querySelector('#sendForm').addEventListener("click", (e) => {
     food = food.slice(1).split(",");
 
     class Cat {
-        constructor(name, race, sex, food, comment) {
+        constructor(name, race, sex, food, comment, photo) {
             this.name = name;
             this.race = race;
             this.sex = sex;
             this.food = food;
             this.comment = comment;
+            this.photo = photo;
         }
     }
 
-    const myCat = new Cat(name, race, sex, food, comment);
-
+    //Экземпляр котика
+    let myCat = new Cat(name, race, sex, food, comment, photo);
     console.log(myCat);
+
+
+
 });
 
 //ЭЛЕКТРОННАЯ ПОЧТА
