@@ -91,7 +91,9 @@ document.getElementById('petName').addEventListener('change', function() {//Им
     const petName = document.getElementById('petName').value.trim().toLowerCase();
 
     document.querySelector('#petName').value = petName[0].toUpperCase()+petName.slice(1);//Ярик
+
 });
+
 
 
 //Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбиралась опция
@@ -211,3 +213,57 @@ document.querySelector("#resetForm").addEventListener('click', function(){
 let text = "алена-Алена-АЛЕна привет"; let pattern = /^[-а-яА-ЯёЁ\s]+$/;
 let result = pattern.test(text);
 console.log(result);*/
+
+
+//НОВЫЙ КОД
+//КЛАСС КОТИК
+
+document.querySelector('#sendForm').addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    const name = document.getElementById("petName").value;
+    const race = document.querySelector("select[name='race']").value;
+    const maleFemale = document.querySelectorAll('input[name="sex"]');
+    const comment = document.querySelector('#comment').value;
+
+    let sex = '';
+    let food = '';
+
+    for (let radio of maleFemale) {
+        if (radio.checked) {
+            sex = radio.value;
+        }
+    }
+
+    if(document.querySelector('#dryfood').checked){
+        food +=`,${document.querySelector('#dryfood').value}`;
+
+    } else if(document.querySelector('#wetfood').checked){
+        food +=`,${document.querySelector('#wetfood').value}`;
+
+    } else if(document.querySelector('#naturalfood').checked){
+        food +=`,${document.querySelector('#naturalfood').value}`;
+
+    } else {
+        food +=`,не выбрано`;
+    }
+
+    food = food.slice(1).split(",");
+
+    class Cat {
+        constructor(name, race, sex, food, comment) {
+            this.name = name;
+            this.race = race;
+            this.sex = sex;
+            this.food = food;
+            this.comment = comment;
+        }
+    }
+
+    const myCat = new Cat(name, race, sex, food, comment);
+
+    console.log(myCat);
+});
+
+//ЭЛЕКТРОННАЯ ПОЧТА

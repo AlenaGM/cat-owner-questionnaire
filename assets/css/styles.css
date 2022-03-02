@@ -224,10 +224,6 @@ body {
     margin-left: 24px;
 }
 
-.button_color-gray:hover {
-    background-color: #adadad;
-}
-
 .button_color-cyan:hover {
     background-color: rgb(94, 221, 221);
 }
