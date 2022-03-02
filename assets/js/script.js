@@ -221,7 +221,8 @@ console.log(result);*/
 //НОВЫЙ КОД
 
 //КЛАСС КОТИК
-document.querySelector('#sendForm').addEventListener("click", (e) => {
+
+document.querySelector('#sendForm').addEventListener("click", function(e) {
 
     e.preventDefault();
 
@@ -232,6 +233,7 @@ document.querySelector('#sendForm').addEventListener("click", (e) => {
 
     let sex = '';
     let initfood = '';
+    let foodCapital;
 
     for (let radio of maleFemale) {
         if (radio.checked) {
@@ -239,23 +241,25 @@ document.querySelector('#sendForm').addEventListener("click", (e) => {
         }
     }
 
-
-
     if(document.querySelector('#dryfood').checked){
-        initfood +=`${document.querySelector('#dryfood').value}, `;
+        initfood +=`${document.querySelector('#dryfood').value},`;
     }
 
     if (document.querySelector('#wetfood').checked){
-        initfood += `${document.querySelector('#wetfood').value}, `;
+        initfood += `${document.querySelector('#wetfood').value},`;
     }
 
     if(document.querySelector('#naturalfood').checked){
-        initfood += document.querySelector('#naturalfood').value;
+        initfood += `${document.querySelector('#naturalfood').value},`;
     }
 
-    let food = initfood[0].toUpperCase()+initfood.slice(1).toLowerCase();
+    if (initfood !=''){
+        foodCapital = initfood[0].toUpperCase()+initfood.slice(1).toLowerCase();
+    } else {foodCapital = 'не указано,'}
 
-    console.log(food);
+    //Оформление: первое слово списка с большой буквы, все остальные с маленькой через запятую
+    let foodSeparate = foodCapital.split(",");
+    let food = foodSeparate.join(", ").slice(0, -2)
 
     class Cat {
         constructor(name, race, sex, food, comment, photo) {
@@ -272,18 +276,20 @@ document.querySelector('#sendForm').addEventListener("click", (e) => {
     let myCat = new Cat(name, race, sex, food, comment, photo);
     console.log(myCat);
 
-    if(name && race && sex && food && comment && photo){
-        // Генерируем карточку и добавляем ее на страницу
+    if(name && race && sex && food && photo){
+        /*/ Генерируем карточку и добавляем ее на страницу
         const newCard = generateCard(name, race, sex, food, comment, photo)
-        document.querySelector('#cat').appendChild(newCard)
+        document.querySelector('#cat').appendChild(newCard)*/
 
         //Добавляем в хранилище
-        //addElementToLocalStorage(name, race, sex, food, comment, photo)
+        localStorage.setItem("catsCollection", JSON.stringify(myCat));
     }
 
 });
 
-//ГЕНЕРИРУЕМ КАРТОЧКУ = СООБЩЕНИЕ НА ФОРУМЕ
+
+
+/*/ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее)
 const generateCard = (name, race, sex, food, comment, photo) =>{
 
     //Рисуем карточку
@@ -329,7 +335,7 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
 
     card__main.appendChild(card__info)
     card__main.appendChild(card__text)
-    card__main.appendChild(card__del)
+    //card__main.appendChild(card__del)
 
     card__info.appendChild(card__title)
     card__info.appendChild(card__race)
@@ -339,5 +345,7 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
 
     return card
 }
+*/
 
-//ЭЛЕКТРОННАЯ ПОЧТА
+
+
