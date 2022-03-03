@@ -83,7 +83,7 @@
 
                     <div class="form__item">
                         <label for="petName" class="form__label">Кличка *</label>
-                        <input id="petName" type="text" name="petname" class="form__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="11" required/>
+                        <input id="petName" type="text" name="petname" class="form__input checkbox__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="11" required/>
                     </div>
 
                     <div class="form__item">
@@ -112,15 +112,15 @@
                         <div class="form__checkbox">
                             <div class="checkbox__item" id="drycheckbox" tabindex="13">
                                 <input id="dryfood" type="checkbox" name="food" value="Сухой корм">
-                                <label for="dryfood" class="checkbox__label">cухой корм</label>
+                                <label for="dryfood" class="checkbox__label">Сухой корм</label>
                             </div>
                             <div class="checkbox__item" id="wetcheckbox" tabindex="14">
                                 <input id="wetfood" type="checkbox" name="food" value="Влажный корм"/>
-                                <label for="wetfood" class="checkbox__label">влажный корм</label>
+                                <label for="wetfood" class="checkbox__label">Влажный корм</label>
                             </div>
                             <div class="checkbox__item" id="natcheckbox" tabindex="15">
                                 <input id="naturalfood" type="checkbox" name="food" value="Натуральный корм"/>
-                                <label for="naturalfood" class="checkbox__label">натуральный корм</label>
+                                <label for="naturalfood" class="checkbox__label">Натуральный корм</label>
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                     </div>
 
                     <div class="form__item form__file">
-                        <div class="form__label">Приложить фото питомца</div>
+                        <div class="form__label photo__label">Приложить фото питомца</div>
                         <div>
                             <div class="file__item">
                                 <input id="formPhoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input" tabindex="19"/>

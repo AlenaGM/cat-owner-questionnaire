@@ -85,13 +85,17 @@ body {
 
 .form__input, .form__select {
     color: #3D3E50;
-    width: 80%;
+    width: 70%;
     box-sizing: border-box;
     padding: 12px 12px 8px 12px;
     border: solid 1px #3D3E50;
     border-radius: 8px;
     margin-top: 12px;
     margin-left: 12px;
+}
+
+.checkbox__input, .form__select {
+    width: 80%;
 }
 
 .form__input:focus, .form__select:focus {
@@ -387,6 +391,10 @@ body {
 
     .form__label {
         margin: 12px 0px 0px 14px;
+    }
+
+    .photo__label {
+        margin: 12px 0px 0px 0px;
     }
 
     .form__checkbox, .form__radio {
