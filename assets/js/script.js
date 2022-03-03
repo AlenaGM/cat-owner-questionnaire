@@ -232,8 +232,8 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
     const comment = document.querySelector('#comment').value;
 
     let sex = '';
-    let initfood = '';
-    let foodCapital;
+    let initFood = '';//Изначально введенное значение
+    let capitalFood;//Изначальное значение с большой буквы
 
     for (let radio of maleFemale) {
         if (radio.checked) {
@@ -242,24 +242,24 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
     }
 
     if(document.querySelector('#dryfood').checked){
-        initfood +=`${document.querySelector('#dryfood').value},`;
+        initFood +=`${document.querySelector('#dryfood').value},`;
     }
 
     if (document.querySelector('#wetfood').checked){
-        initfood += `${document.querySelector('#wetfood').value},`;
+        initFood += `${document.querySelector('#wetfood').value},`;
     }
 
     if(document.querySelector('#naturalfood').checked){
-        initfood += `${document.querySelector('#naturalfood').value},`;
+        initFood += `${document.querySelector('#naturalfood').value},`;
     }
 
-    if (initfood !=''){
-        foodCapital = initfood[0].toUpperCase()+initfood.slice(1).toLowerCase();
-    } else {foodCapital = 'не указано,'}
+    if (initFood !=''){
+        capitalFood = initFood[0].toUpperCase()+initFood.slice(1).toLowerCase();
+    } else {capitalFood = 'не указано,'}
 
     //Оформление: первое слово списка с большой буквы, все остальные с маленькой через запятую
-    let foodSeparate = foodCapital.split(",");
-    let food = foodSeparate.join(", ").slice(0, -2)
+    let separateFood = capitalFood.split(",");
+    let food = separateFood.join(", ").slice(0, -2)
 
     class Cat {
         constructor(name, race, sex, food, comment, photo) {
@@ -289,7 +289,7 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
 
 
 
-/*/ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее)
+/*/ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
 const generateCard = (name, race, sex, food, comment, photo) =>{
 
     //Рисуем карточку
@@ -345,7 +345,7 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
 
     return card
 }
-*/
 
+*/
 
 
