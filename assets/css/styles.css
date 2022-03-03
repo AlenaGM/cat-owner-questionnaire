@@ -85,7 +85,7 @@ body {
 
 .form__input, .form__select {
     color: #3D3E50;
-    width: 70%;
+    width: 80%;
     box-sizing: border-box;
     padding: 12px 12px 8px 12px;
     border: solid 1px #3D3E50;
