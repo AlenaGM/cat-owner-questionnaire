@@ -36,41 +36,45 @@
                         <label for="lastName" class="form__label" >Фамилия *</label>
                         <input id="lastName" type="text" name="lastname" class="form__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="2" required/>
                     </div>
+                    <div class="form__item">
+                        <label for="birthDay" class="form__label" >Дата рождения *</label>
+                        <input id="birthDay" type="date" name="birthday" class="form__input" value="" tabindex="3" required/>
+                    </div>
 
                     <fieldset class="form__fielset fieldset_color-cyan">
                         <legend class="form__legend legend_color-cyan">Адрес</legend>
 
                         <div class="form__item">
                             <label for="street" class="form__label" >Улица *</label>
-                            <input id="street" type="text" name="street" class="form__input" maxlength="132" value="" tabindex="3" required/>
+                            <input id="street" type="text" name="street" class="form__input" maxlength="132" value="" tabindex="4" required/>
                             <!--Имя улицы в 132 буквы: Территория, изъятая из земель подсобного хозяйства Всесоюзного
                                 центрального совета профессиональных союзов для организации крестьянского хозяйства-->
                         </div>
                         <div class="form__item">
                             <label for="house" class="form__label">Дом *</label>
-                            <input id="house" type="text" name="house" class="form__input" value="" maxlength="4" pattern="^[-а-яА-ЯёЁ0-9\s]+$" tabindex="4" required/>
+                            <input id="house" type="text" name="house" class="form__input" value="" maxlength="4" pattern="^[-а-яА-ЯёЁ0-9\s]+$" tabindex="5" required/>
                         </div>
                         <div class="form__item">
                             <label for="flat" class="form__label">Квартира</label>
-                            <input id="flat" type="number" max="4000" min="1" name="flat" class="form__input" value="" tabindex="5"/>
+                            <input id="flat" type="number" max="4000" min="1" name="flat" class="form__input" value="" tabindex="6"/>
                         </div>
                         <div class="form__item">
                             <label for="city" class="form__label">Город *</label>
-                            <input id="city" type="text" name="city" class="form__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="6" required/>
+                            <input id="city" type="text" name="city" class="form__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="7" required/>
                         </div>
                         <div class="form__item">
                             <label for="postalcode" class="form__label">Индекс *</label>
-                            <input id="postalcode" type="number" max="700000" min="100000" class="form__input" value="" tabindex="7" required/>
+                            <input id="postalcode" type="number" max="700000" min="100000" class="form__input" value="" tabindex="8" required/>
                         </div>
                     </fieldset>
 
                     <div class="form__item">
                         <label for="email" class="form__label">Эл.почта *</label>
-                        <input id="email" type="email" name="email" class="form__input" value="" tabindex="8" required/>
+                        <input id="email" type="email" name="email" class="form__input" value="" tabindex="9" required/>
                     </div>
                     <div class="form__item">
                         <label for="phone" class="form__label">Телефон</label>
-                        <input id="phone" type="tel" name="phone" class="form__input" value="" pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" maxlength="13" tabindex="9"/>
+                        <input id="phone" type="tel" name="phone" class="form__input" value="" pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" maxlength="13" tabindex="10"/>
                     </div>
                 </fieldset>
 
@@ -79,12 +83,12 @@
 
                     <div class="form__item">
                         <label for="petName" class="form__label">Кличка *</label>
-                        <input id="petName" type="text" name="petname" class="form__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="10" required/>
+                        <input id="petName" type="text" name="petname" class="form__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="11" required/>
                     </div>
 
                     <div class="form__item">
                         <div class="form__label">Порода</div>
-                        <select name="race" class="form__select" tabindex="11">
+                        <select name="race" class="form__select" tabindex="12">
                             <option value="none" disabled selected>Выберите породу</option>
                             <option value="неизвестная">не знаю породы</option>
                             <option value="Абиссинская">Абиссинская</option>
@@ -106,15 +110,15 @@
                         <div class="form__label">Питание</div>
 
                         <div class="form__checkbox">
-                            <div class="checkbox__item" id="drycheckbox" tabindex="12">
+                            <div class="checkbox__item" id="drycheckbox" tabindex="13">
                                 <input id="dryfood" type="checkbox" name="food" value="Сухой корм">
                                 <label for="dryfood" class="checkbox__label">cухой корм</label>
                             </div>
-                            <div class="checkbox__item" id="wetcheckbox" tabindex="13">
+                            <div class="checkbox__item" id="wetcheckbox" tabindex="14">
                                 <input id="wetfood" type="checkbox" name="food" value="Влажный корм"/>
                                 <label for="wetfood" class="checkbox__label">влажный корм</label>
                             </div>
-                            <div class="checkbox__item" id="natcheckbox" tabindex="14">
+                            <div class="checkbox__item" id="natcheckbox" tabindex="15">
                                 <input id="naturalfood" type="checkbox" name="food" value="Натуральный корм"/>
                                 <label for="naturalfood" class="checkbox__label">натуральный корм</label>
                             </div>
@@ -125,11 +129,11 @@
                         <div class="form__label">Пол *</div>
 
                         <div class="form__radio">
-                            <div class="radio__item" id="maleradio" tabindex="15">
+                            <div class="radio__item" id="maleradio" tabindex="16">
                                 <input id="male" type="radio" name="sex" value="Самец" required/>
                                 <label for="male" class="radio__label">Самец</label>
                             </div>
-                            <div class="radio__item" id="femaleradio" tabindex="16">
+                            <div class="radio__item" id="femaleradio" tabindex="17">
                                 <input id="female" type="radio" name="sex" value="Самка" required/>
                                 <label for="female" class="radio__label">Самка</label>
                             </div>
@@ -138,14 +142,14 @@
 
                     <div class="form__item form__comment">
                         <label for="comment" class="form__legend legend_color-cyan comment__label">Ваш комментарий</label>
-                        <textarea id="comment" name="comment" class="form__fielset fieldset_color-cyan comment" tabindex="16"></textarea>
+                        <textarea id="comment" name="comment" class="form__fielset fieldset_color-cyan comment" tabindex="18"></textarea>
                     </div>
 
                     <div class="form__item form__file">
                         <div class="form__label">Приложить фото питомца</div>
                         <div>
                             <div class="file__item">
-                                <input id="formPhoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input" tabindex="17"/>
+                                <input id="formPhoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input" tabindex="19"/>
                                 <div id="choosePhoto" class="file__button button button_color-gray">Выбрать</div>
                             </div>
                             <div id="photoPreview" class="file__preview"></div>
@@ -154,8 +158,8 @@
                 </fieldset>
 
                 <div class="form__buttons">
-                    <button id="sendForm" type="submit" class="button button_color-cyan" tabindex="18">Отправить</button>
-                    <button id="resetForm" type="reset" class="button button_color-violetred">Сбросить</button>
+                    <button id="sendForm" type="submit" class="button button_color-cyan" tabindex="20">Отправить</button>
+                    <button id="resetForm" type="reset" class="button button_color-violetred" tabindex="21">Сбросить</button>
                 </div>
                 <p class="agreement">Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
                     href=""> Политикой конфиденциальности</a></p>

@@ -276,17 +276,17 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
     let myCat = new Cat(name, race, sex, food, comment, photo);
     console.log(myCat);
 
+    /*(на будущее)
     if(name && race && sex && food && photo){
-        /*/ Генерируем карточку и добавляем ее на страницу
+        // Генерируем карточку и добавляем ее на страницу
         const newCard = generateCard(name, race, sex, food, comment, photo)
-        document.querySelector('#cat').appendChild(newCard)*/
+        document.querySelector('#cat').appendChild(newCard)
 
         //Добавляем в хранилище
         localStorage.setItem("catsCollection", JSON.stringify(myCat));
-    }
+    }*/
 
 });
-
 
 
 /*/ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
@@ -326,6 +326,13 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
     card__text.classList.add("card__text")
     card__text.innerText = comment
 
+    let card__buttons = document.createElement('div')
+    card__buttons.classList.add("card__buttons");
+
+    let card__edit = document.createElement('button')
+    card__edit.classList.add("card__edit");
+    card__edit.innerHTML="Редактировать"
+
     let card__del = document.createElement('button')
     card__del.classList.add("card__del");
     card__del.innerHTML="Удалить"
@@ -335,7 +342,10 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
 
     card__main.appendChild(card__info)
     card__main.appendChild(card__text)
-    //card__main.appendChild(card__del)
+    card__main.appendChild(card__buttons)
+
+    card__buttons.appendChild(card__edit)
+    card__buttons.appendChild(card__del)
 
     card__info.appendChild(card__title)
     card__info.appendChild(card__race)
@@ -344,8 +354,8 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
 
 
     return card
-}
+}*/
 
-*/
+//КЛАСС ВАЛИДАТОР
 
 
