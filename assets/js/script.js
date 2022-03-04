@@ -276,7 +276,7 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
     let myCat = new Cat(name, race, sex, food, comment, photo);
     console.log(myCat);
 
-    /*(на будущее)
+    //(на будущее)
     if(name && race && sex && food && photo){
         // Генерируем карточку и добавляем ее на страницу
         const newCard = generateCard(name, race, sex, food, comment, photo)
@@ -284,12 +284,12 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
 
         //Добавляем в хранилище
         localStorage.setItem("catsCollection", JSON.stringify(myCat));
-    }*/
+    }
 
 });
 
 
-/*/ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
+//ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
 const generateCard = (name, race, sex, food, comment, photo) =>{
 
     //Рисуем карточку
@@ -354,8 +354,8 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
 
 
     return card
-}*/
+}
 
-//КЛАСС ВАЛИДАТОР
+
 
 
