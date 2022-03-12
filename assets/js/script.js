@@ -211,6 +211,23 @@ document.querySelector("#resetForm").addEventListener('click', function(){
     location.reload();
 });
 
+// НОВЫЙ КОД 21 НЕДЕЛИ: ОТПРАВКА ФОРМЫ при нажатии на кнопку "Отправить"
+document.querySelector("#sendForm").addEventListener('click', function(event){
+
+    event.preventDefault();
+
+    fetch("https://httpbin.org/post",
+        {
+            method:'POST',
+            body: new FormData(form),
+            headers: {
+                "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
+            },
+        })
+        .then(response => response.json())
+        .catch(error => console.log(error));
+});
+
 
 /*Проверка regex
 let text = "алена-Алена-АЛЕна привет"; let pattern = /^[-а-яА-ЯёЁ\s]+$/;
@@ -218,9 +235,7 @@ let result = pattern.test(text);
 console.log(result);*/
 
 
-//НОВЫЙ КОД
-
-//КЛАСС КОТИК
+/*/НОВЫЙ КОД 19-й недели: КЛАСС КОТИК (убрано, так как не нужен на этой неделе)
 
 document.querySelector('#sendForm').addEventListener("click", function(e) {
 
@@ -354,7 +369,7 @@ const generateCard = (name, race, sex, food, comment, photo) =>{
 
 
     return card
-}
+}*/
 
 
 
