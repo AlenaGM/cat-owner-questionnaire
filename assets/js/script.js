@@ -95,7 +95,6 @@ document.getElementById('petName').addEventListener('change', function() {//Им
 });
 
 
-
 //Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбиралась опция
 
 document.querySelector('#drycheckbox').addEventListener('keypress', function (e) {
@@ -302,7 +301,6 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
     }
 
 });
-
 
 //ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
 const generateCard = (name, race, sex, food, comment, photo) =>{
