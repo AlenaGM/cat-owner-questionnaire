@@ -154,34 +154,33 @@ document.querySelector('#femaleradio').addEventListener('keypress', function (e)
 // Чтобы тел. номер сразу был красивым, (в html валидация тоже есть, все по-честному)
 
 document.querySelector('#phone').addEventListener('change', function validatePhone(){
-    let phone = document.querySelector('#phone').value;
+    const phone = document.querySelector('#phone').value;
 
     let lengthPhone = phone.length;
     let digits=phone.split('');
 
     if(lengthPhone == 11){
-        digits.slice(1,"", "(");
-        digits.slice(5,"", ")");
-        digits.slice(9,"", "-");
-        digits.slice(12,"", "-");
+        digits.splice(1,"", "(");
+        digits.splice(5,"", ")");
+        digits.splice(9,"", "-");
+        digits.splice(12,"", "-");
 
     } else if (lengthPhone == 12){
-        digits.slice(2,"", "(");
-        digits.slice(6,"", ")");
-        digits.slice(10,"", "-");
-        digits.slice(13,"", "-");
+        digits.splice(2,"", "(");
+        digits.splice(6,"", ")");
+        digits.splice(10,"", "-");
+        digits.splice(13,"", "-");
 
     } else if (lengthPhone == 13){
-        digits.slice(3,"", "(");
-        digits.slice(7,"", ")");
-        digits.slice(11,"", "-");
-        digits.slice(14,"", "-");
+        digits.splice(3,"", "(");
+        digits.splice(7,"", ")");
+        digits.splice(11,"", "-");
+        digits.splice(14,"", "-");
     };
 
     let almostPhone = digits.join('');
-    phone = '+7'+ ' (' + almostPhone.slice(-10,-7) + ') ' + almostPhone.slice(-7,-4) + '-' + almostPhone.slice(-4,-2) + '-' + almostPhone.slice(-2);
 
-    document.querySelector('#phone').value = phone;
+    document.querySelector('#phone').value = '+7'+ almostPhone.slice(-14);
 });
 
 
@@ -216,10 +215,6 @@ document.querySelector("#sendForm").addEventListener('click', function(event){
 
     event.preventDefault();
 
-    checkAll();
-
-    if (errors == 0){
-
         fetch("https://httpbin.org/post",
             {
                 method:'POST',
@@ -230,48 +225,9 @@ document.querySelector("#sendForm").addEventListener('click', function(event){
             })
         .then(response => response.json())
         .catch(error => console.log(error));
-    }
+
 });
 
-// ПРОВЕРКА ВАЛИДАЦИИ ПЕРЕД ОТПРАВКОЙ ФОРМЫ
-let errors = [];
-
-function checkValidity (input) {
-
-    let validity = input.validity;
-
-    if(validity.valueMissing) {
-        errors.push(input.placeholder + ' is required!');
-    }
-
-    if(validity.patternMismatch) {
-        errors.push(input.placeholder + ' format is not valid');
-    }
-
-    if(validity.tooLong) {
-        let maxlength = getAttributeValue(input, 'maxlength');
-        errors.push('Maximum number of symbols is ' + maxlength);
-    }
-
-    if(errors.length!=0){
-        document.getElementById('errorsInfo').innerHTML = 'net ok';
-
-    }else{
-        document.getElementById('successMessage').innerHTML = 'vse ok';
-    }
-
-}
-
-function checkAll() {
-
-    let inputs = document.querySelectorAll('input');
-
-    for (let input of inputs) {
-        checkValidity(input);
-    }
-
-    document.getElementById('errorsInfo').innerHTML = errors.join('. <br>');
-}
 
 /*Проверка regex
 let text = "алена-Алена-АЛЕна привет"; let pattern = /^[-а-яА-ЯёЁ\s]+$/;
