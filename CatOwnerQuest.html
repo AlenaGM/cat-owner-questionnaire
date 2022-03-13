@@ -17,7 +17,7 @@
 <body>
     <div class="wrapper">
         <div class="form">
-            <form action="#" id="form" class="form__body">
+            <form method="post" action="/post" id="form" class="form__body">
                 <div class="form__image">
                     <img src="assets/img/cat-lover.png" alt="Эмблема клуба владедьцев кошек" class="form__image">
                 </div>
@@ -36,12 +36,7 @@
                         <label for="lastName" class="form__label" >Фамилия *</label>
                         <input id="lastName" type="text" name="lastname" class="form__input" value="" pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="2" required/>
                     </div>
-                    <!--
-                    <div class="form__item">
-                        <label for="birthDay" class="form__label" >Дата рождения *</label>
-                        <input id="birthDay" type="date" name="birthday" class="form__input" value="" tabindex="3" required/>
-                    </div>
-                    -->
+
                     <fieldset class="form__fielset fieldset_color-cyan">
                         <legend class="form__legend legend_color-cyan">Адрес</legend>
 
@@ -162,6 +157,8 @@
                     <button id="sendForm" type="submit" class="button button_color-cyan" tabindex="20">Отправить</button>
                     <button id="resetForm" type="reset" class="button button_color-violetred" tabindex="21">Сбросить</button>
                 </div>
+                <div id="errorsInfo"></div>
+                <div id="successMessage"></div>
                 <p class="agreement">Нажимая на кнопку "Отправить", вы даете согласие на обработку персональных данных и соглашаетесь c<a
                     href=""> Политикой конфиденциальности</a></p>
             </form>

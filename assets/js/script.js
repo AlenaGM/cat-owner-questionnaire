@@ -1,5 +1,5 @@
 "use strict"
-
+//СТАРЫЙ КОД, НОВЫЙ НАЧИНАЕТСЯ С 214 СТР.
 // Приведение написания имен собственных, названий улиц и т.д. к красивому виду
 document.getElementById('firstName').addEventListener('change', function() {//Имя с большой буквы
 
@@ -95,7 +95,7 @@ document.getElementById('petName').addEventListener('change', function() {//Им
 });
 
 
-//Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбиралась опция
+// Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбиралась опция
 
 document.querySelector('#drycheckbox').addEventListener('keypress', function (e) {
 
@@ -151,7 +151,7 @@ document.querySelector('#femaleradio').addEventListener('keypress', function (e)
 });
 
 
-//Чтобы тел. номер сразу был красивым, (в html валидация тоже есть, все по-честному)
+// Чтобы тел. номер сразу был красивым, (в html валидация тоже есть, все по-честному)
 
 document.querySelector('#phone').addEventListener('change', function validatePhone(){
     let phone = document.querySelector('#phone').value;
@@ -216,18 +216,62 @@ document.querySelector("#sendForm").addEventListener('click', function(event){
 
     event.preventDefault();
 
-    fetch("https://httpbin.org/post",
-        {
-            method:'POST',
-            body: new FormData(form),
-            headers: {
-                "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
-            },
-        })
+    checkAll();
+
+    if (errors == 0){
+
+        fetch("https://httpbin.org/post",
+            {
+                method:'POST',
+                body: new FormData(form),
+                headers: {
+                    "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
+                },
+            })
         .then(response => response.json())
         .catch(error => console.log(error));
+    }
 });
 
+// ПРОВЕРКА ВАЛИДАЦИИ ПЕРЕД ОТПРАВКОЙ ФОРМЫ
+let errors = [];
+
+function checkValidity (input) {
+
+    let validity = input.validity;
+
+    if(validity.valueMissing) {
+        errors.push(input.placeholder + ' is required!');
+    }
+
+    if(validity.patternMismatch) {
+        errors.push(input.placeholder + ' format is not valid');
+    }
+
+    if(validity.tooLong) {
+        let maxlength = getAttributeValue(input, 'maxlength');
+        errors.push('Maximum number of symbols is ' + maxlength);
+    }
+
+    if(errors.length!=0){
+        document.getElementById('errorsInfo').innerHTML = 'net ok';
+
+    }else{
+        document.getElementById('successMessage').innerHTML = 'vse ok';
+    }
+
+}
+
+function checkAll() {
+
+    let inputs = document.querySelectorAll('input');
+
+    for (let input of inputs) {
+        checkValidity(input);
+    }
+
+    document.getElementById('errorsInfo').innerHTML = errors.join('. <br>');
+}
 
 /*Проверка regex
 let text = "алена-Алена-АЛЕна привет"; let pattern = /^[-а-яА-ЯёЁ\s]+$/;
