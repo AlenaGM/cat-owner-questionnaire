@@ -159,7 +159,13 @@ document.querySelector('#phone').addEventListener('change', function validatePho
     let lengthPhone = phone.length;
     let digits=phone.split('');
 
-    if(lengthPhone == 11){
+    if(lengthPhone == 10){
+        digits.splice(0,"", "(");
+        digits.splice(4,"", ")");
+        digits.splice(8,"", "-");
+        digits.splice(11,"", "-");
+
+    } else if (lengthPhone == 11){
         digits.splice(1,"", "(");
         digits.splice(5,"", ")");
         digits.splice(9,"", "-");
@@ -170,12 +176,6 @@ document.querySelector('#phone').addEventListener('change', function validatePho
         digits.splice(6,"", ")");
         digits.splice(10,"", "-");
         digits.splice(13,"", "-");
-
-    } else if (lengthPhone == 13){
-        digits.splice(3,"", "(");
-        digits.splice(7,"", ")");
-        digits.splice(11,"", "-");
-        digits.splice(14,"", "-");
     };
 
     let almostPhone = digits.join('');
