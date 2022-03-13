@@ -107,7 +107,7 @@ body {
 }
 
 .form__input:required:valid {
-    background: url(/assets/img/check.svg) 98% center/18px no-repeat;
+    background: url(../img/check.svg) 98% center/18px no-repeat;
 }
 
 .form__select option {
