@@ -276,17 +276,6 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
     let separateFood = capitalFood.split(",");
     let food = separateFood.join(", ").slice(0, -2)
 
-    class Cat {
-        constructor(name, race, sex, food, comment, photo) {
-            this.name = name;
-            this.race = race;
-            this.sex = sex;
-            this.food = food;
-            this.comment = comment;
-            this.photo = photo;
-        }
-    }
-
     //Экземпляр котика
     let myCat = new Cat(name, race, sex, food, comment, photo);
     console.log(myCat);
@@ -302,6 +291,17 @@ document.querySelector('#sendForm').addEventListener("click", function(e) {
     }
 
 });
+
+class Cat {
+    constructor(name, race, sex, food, comment, photo) {
+        this.name = name;
+        this.race = race;
+        this.sex = sex;
+        this.food = food;
+        this.comment = comment;
+        this.photo = photo;
+    }
+}
 
 //ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
 const generateCard = (name, race, sex, food, comment, photo) =>{
