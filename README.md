@@ -38,7 +38,9 @@ Initially the form had following inputs:
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; CSS3<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; JavaScript<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; Form validation<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; POST request<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; GET&POST request<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; FormData()<br> 
+
 
 
 
