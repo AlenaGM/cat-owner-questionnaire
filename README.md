@@ -27,7 +27,7 @@ Initially the form had following inputs:
 2. JS form validation before form-sending.
 
 ## Result
-<img width="35%" alt="screen capture" src="../main/assets/img/captureweb.jpeg">
+<img width="45%" alt="screen capture" src="../main/assets/img/сaptureweb.jpeg">
 
 ## Demo
 [Cat-Owner-Questionnaire]
