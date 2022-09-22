@@ -260,142 +260,134 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
     .catch((error) => console.log(error));
 });
 
-/*Проверка regex
-let text = "алена-Алена-АЛЕна привет"; let pattern = /^[-а-яА-ЯёЁ\s]+$/;
-let result = pattern.test(text);
-console.log(result);*/
-
-/*/НОВЫЙ КОД 19-й недели: КЛАСС КОТИК (убрано, так как не нужен на 21й неделе)
-
-document.querySelector('#sendForm').addEventListener("click", function(e) {
-
+/*/НОВЫЙ КОД 19-й недели: КЛАСС КОТИК
+  document.querySelector("#sendForm").addEventListener("click", function (e) {
     e.preventDefault();
 
-    const name = document.getElementById("petName").value;
-    const race = document.querySelector("select[name='race']").value;
-    const maleFemale = document.querySelectorAll('input[name="sex"]');
-    const comment = document.querySelector('#comment').value;
+  const name = document.getElementById("petName").value;
+  const race = document.querySelector("select[name='race']").value;
+  const maleFemale = document.querySelectorAll('input[name="sex"]');
+  const comment = document.querySelector("#comment").value;
 
-    let sex = '';
-    let initFood = '';//Изначально введенное значение
-    let capitalFood;//Изначальное значение с большой буквы
+  let sex = "";
+  let initFood = ""; //Изначально введенное значение
+  let capitalFood; //Изначальное значение с большой буквы
 
-    for (let radio of maleFemale) {
-        if (radio.checked) {
-            sex = radio.value;
-        }
+  for (let radio of maleFemale) {
+    if (radio.checked) {
+      sex = radio.value;
     }
+  }
 
-    if(document.querySelector('#dryfood').checked){
-        initFood +=`${document.querySelector('#dryfood').value},`;
-    }
+  if (document.querySelector("#dryfood").checked) {
+    initFood += `${document.querySelector("#dryfood").value},`;
+  }
 
-    if (document.querySelector('#wetfood').checked){
-        initFood += `${document.querySelector('#wetfood').value},`;
-    }
+  if (document.querySelector("#wetfood").checked) {
+    initFood += `${document.querySelector("#wetfood").value},`;
+  }
 
-    if(document.querySelector('#naturalfood').checked){
-        initFood += `${document.querySelector('#naturalfood').value},`;
-    }
+  if (document.querySelector("#naturalfood").checked) {
+    initFood += `${document.querySelector("#naturalfood").value},`;
+  }
 
-    if (initFood !=''){
-        capitalFood = initFood[0].toUpperCase()+initFood.slice(1).toLowerCase();
-    } else {capitalFood = 'не указано,'}
+  if (initFood != "") {
+    capitalFood = initFood[0].toUpperCase() + initFood.slice(1).toLowerCase();
+  } else {
+    capitalFood = "не указано,";
+  }
 
-    //Оформление: первое слово списка с большой буквы, все остальные с маленькой через запятую
-    let separateFood = capitalFood.split(",");
-    let food = separateFood.join(", ").slice(0, -2)
+  //Оформление: первое слово списка с большой буквы, все остальные с маленькой через запятую
+  let separateFood = capitalFood.split(",");
+  let food = separateFood.join(", ").slice(0, -2);
 
-    //Экземпляр котика
-    let myCat = new Cat(name, race, sex, food, comment, photo);
-    console.log(myCat);
+  //Экземпляр котика
+  let myCat = new Cat(name, race, sex, food, comment, photo);
+  console.log(myCat);
 
-    //(на будущее)
-    if(name && race && sex && food && photo){
-        // Генерируем карточку и добавляем ее на страницу
-        const newCard = generateCard(name, race, sex, food, comment, photo)
-        document.querySelector('#cat').appendChild(newCard)
+  //(на будущее)
+  if (name && race && sex && food && photo) {
+    // Генерируем карточку и добавляем ее на страницу
+    const newCard = generateCard(name, race, sex, food, comment, photo);
+    document.querySelector("#cat").appendChild(newCard);
 
-        //Добавляем в хранилище
-        localStorage.setItem("catsCollection", JSON.stringify(myCat));
-    }
-
+    //Добавляем в хранилище
+    localStorage.setItem("catsCollection", JSON.stringify(myCat));
+  }
 });
 
 class Cat {
-    constructor(name, race, sex, food, comment, photo) {
-        this.name = name;
-        this.race = race;
-        this.sex = sex;
-        this.food = food;
-        this.comment = comment;
-        this.photo = photo;
-    }
+  constructor(name, race, sex, food, comment, photo) {
+    this.name = name;
+    this.race = race;
+    this.sex = sex;
+    this.food = food;
+    this.comment = comment;
+    this.photo = photo;
+  }
 }
 
 //ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
-const generateCard = (name, race, sex, food, comment, photo) =>{
+const generateCard = (name, race, sex, food, comment, photo) => {
+  //Рисуем карточку
+  let card = document.createElement("div");
+  card.classList.add("card");
 
-    //Рисуем карточку
-    let card = document.createElement('div')
-    card.classList.add("card");
+  let card__image = document.createElement("img");
+  card__image.classList.add("card__image");
+  card__image.src = photo;
 
-    let card__image = document.createElement('img')
-    card__image.classList.add("card__image");
-    card__image.src = photo
+  let card__main = document.createElement("div");
+  card__main.classList.add("card__main");
 
-    let card__main = document.createElement('div')
-    card__main.classList.add("card__main")
+  let card__info = document.createElement("div");
+  card__info.classList.add("card__info");
 
-    let card__info = document.createElement('div')
-    card__info.classList.add("card__info")
+  let card__title = document.createElement("h3");
+  card__title.classList.add("card__title");
+  card__title.innerText = name;
 
-    let card__title = document.createElement('h3')
-    card__title.classList.add("card__title")
-    card__title.innerText = name
+  let card__race = document.createElement("div");
+  card__race.classList.add("card__race");
+  card__race.innerText = `Порода: ${race}`;
 
-    let card__race = document.createElement('div')
-    card__race.classList.add("card__race")
-    card__race.innerText = `Порода: ${race}`
+  let card__sex = document.createElement("div");
+  card__sex.classList.add("card__sex");
+  card__sex.innerText = `Пол: ${sex}`;
 
-    let card__sex = document.createElement('div')
-    card__sex.classList.add("card__sex")
-    card__sex.innerText = `Пол: ${sex}`
+  let card__food = document.createElement("div");
+  card__food.classList.add("card__food");
+  card__food.innerText = `Питание: ${food}`;
 
-    let card__food = document.createElement('div')
-    card__food.classList.add("card__food")
-    card__food.innerText = `Питание: ${food}`
+  let card__text = document.createElement("p");
+  card__text.classList.add("card__text");
+  card__text.innerText = comment;
 
-    let card__text = document.createElement('p')
-    card__text.classList.add("card__text")
-    card__text.innerText = comment
+  let card__buttons = document.createElement("div");
+  card__buttons.classList.add("card__buttons");
 
-    let card__buttons = document.createElement('div')
-    card__buttons.classList.add("card__buttons");
+  let card__edit = document.createElement("button");
+  card__edit.classList.add("card__edit");
+  card__edit.innerHTML = "Редактировать";
 
-    let card__edit = document.createElement('button')
-    card__edit.classList.add("card__edit");
-    card__edit.innerHTML="Редактировать"
+  let card__del = document.createElement("button");
+  card__del.classList.add("card__del");
+  card__del.innerHTML = "Удалить";
 
-    let card__del = document.createElement('button')
-    card__del.classList.add("card__del");
-    card__del.innerHTML="Удалить"
+  card.appendChild(card__image);
+  card.appendChild(card__main);
 
-    card.appendChild(card__image)
-    card.appendChild(card__main)
+  card__main.appendChild(card__info);
+  card__main.appendChild(card__text);
+  card__main.appendChild(card__buttons);
 
-    card__main.appendChild(card__info)
-    card__main.appendChild(card__text)
-    card__main.appendChild(card__buttons)
+  card__buttons.appendChild(card__edit);
+  card__buttons.appendChild(card__del);
 
-    card__buttons.appendChild(card__edit)
-    card__buttons.appendChild(card__del)
+  card__info.appendChild(card__title);
+  card__info.appendChild(card__race);
+  card__info.appendChild(card__sex);
+  card__info.appendChild(card__food);
 
-    card__info.appendChild(card__title)
-    card__info.appendChild(card__race)
-    card__info.appendChild(card__sex)
-    card__info.appendChild(card__food)
-
-
-    return card
-}*/
+  return card;
+};*/
