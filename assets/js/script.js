@@ -249,6 +249,14 @@ document.querySelector("#resetForm").addEventListener("click", function () {
 document.querySelector("#sendForm").addEventListener("click", function (event) {
   event.preventDefault();
 
+  sendForm();
+  createCatCard();
+});
+
+document.getElementById("successMessage").innerHTML = "";
+document.getElementById("errorsInfo").innerHTML = "";
+
+const sendForm = () => {
   fetch("https://httpbin.org/post", {
     method: "POST",
     body: new FormData(form),
@@ -257,14 +265,27 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
     },
   })
     .then((response) => response.json())
-    .catch((error) => console.log(error));
-});
+    .then(console.log("отправили форму"))
+    .then(() => addSuccess())
+    .catch((error) => {
+      console.log(error);
+      () => addFailure();
+    });
+};
 
-/*/НОВЫЙ КОД 19-й недели: КЛАСС КОТИК
-  document.querySelector("#sendForm").addEventListener("click", function (e) {
-    e.preventDefault();
+function addSuccess() {
+  document.getElementById(
+    "successMessage"
+  ).innerHTML = `Поздравляем!<br> Информация о вашем котике отправлена!`;
+}
 
-  const name = document.getElementById("petName").value;
+function addFailure() {
+  document.getElementById("errorsInfo").innerHTML =
+    "Что-то пошло не так и форма не отправилась";
+}
+
+const createCatCard = () => {
+  const petname = document.getElementById("petName").value;
   const race = document.querySelector("select[name='race']").value;
   const maleFemale = document.querySelectorAll('input[name="sex"]');
   const comment = document.querySelector("#comment").value;
@@ -302,23 +323,25 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
   let food = separateFood.join(", ").slice(0, -2);
 
   //Экземпляр котика
-  let myCat = new Cat(name, race, sex, food, comment, photo);
+  let myCat = new Cat(petname, race, sex, food, comment, photo);
   console.log(myCat);
 
   //(на будущее)
-  if (name && race && sex && food && photo) {
+  if (petname && race && sex && food && photo) {
     // Генерируем карточку и добавляем ее на страницу
-    const newCard = generateCard(name, race, sex, food, comment, photo);
+    const newCard = generateCard(petname, race, sex, food, comment, photo);
     document.querySelector("#cat").appendChild(newCard);
+    console.log("добавили карточку котика на страницу");
 
     //Добавляем в хранилище
     localStorage.setItem("catsCollection", JSON.stringify(myCat));
+    console.log("добавили котика в локальное хранилище");
   }
-});
+};
 
 class Cat {
-  constructor(name, race, sex, food, comment, photo) {
-    this.name = name;
+  constructor(petname, race, sex, food, comment, photo) {
+    this.petname = petname;
     this.race = race;
     this.sex = sex;
     this.food = food;
@@ -381,8 +404,8 @@ const generateCard = (name, race, sex, food, comment, photo) => {
   card__main.appendChild(card__text);
   card__main.appendChild(card__buttons);
 
-  card__buttons.appendChild(card__edit);
-  card__buttons.appendChild(card__del);
+  //card__buttons.appendChild(card__edit);
+  //card__buttons.appendChild(card__del);
 
   card__info.appendChild(card__title);
   card__info.appendChild(card__race);
@@ -390,4 +413,4 @@ const generateCard = (name, race, sex, food, comment, photo) => {
   card__info.appendChild(card__food);
 
   return card;
-};*/
+};
