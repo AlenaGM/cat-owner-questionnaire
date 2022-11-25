@@ -1,7 +1,8 @@
 "use strict";
 
-//Приведение написания имен собственных, названий улиц и т.д. к красивому виду
-//1-Имя с большой буквы:
+//Приведение написания имен собственных, названий улиц и т.д. к красивому виду:
+
+//1-Имя с большой буквы
 document.getElementById("firstName").addEventListener("change", function () {
   const firstName = document
     .getElementById("firstName")
@@ -10,6 +11,7 @@ document.getElementById("firstName").addEventListener("change", function () {
   document.querySelector("#firstName").value =
     firstName[0].toUpperCase() + firstName.slice(1); //Александра
 });
+
 //2-Фамилия с большой буквы
 document.getElementById("lastName").addEventListener("change", function () {
   const initialLastName = document
@@ -125,7 +127,38 @@ document.getElementById("petName").addEventListener("change", function () {
     petName[0].toUpperCase() + petName.slice(1); //Ярик
 });
 
-//8-Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбиралась опция
+//8-Красивый тел.номер
+document
+  .querySelector("#phone")
+  .addEventListener("change", function validatePhone() {
+    const phone = document.querySelector("#phone").value;
+
+    let lengthPhone = phone.length;
+    let digits = phone.split("");
+
+    if (lengthPhone == 10) {
+      digits.splice(0, "", "(");
+      digits.splice(4, "", ")");
+      digits.splice(8, "", "-");
+      digits.splice(11, "", "-");
+    } else if (lengthPhone == 11) {
+      digits.splice(1, "", "(");
+      digits.splice(5, "", ")");
+      digits.splice(9, "", "-");
+      digits.splice(12, "", "-");
+    } else if (lengthPhone == 12) {
+      digits.splice(2, "", "(");
+      digits.splice(6, "", ")");
+      digits.splice(10, "", "-");
+      digits.splice(13, "", "-");
+    }
+
+    let almostPhone = digits.join("");
+
+    document.querySelector("#phone").value = "+7" + almostPhone.slice(-14);
+  });
+
+//UX - при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбирается опция
 document
   .querySelector("#drycheckbox")
   .addEventListener("keypress", function (e) {
@@ -187,38 +220,7 @@ document
     }
   });
 
-//9-Чтобы тел. номер сразу был красивым, (в html валидация тоже есть, все по-честному)
-document
-  .querySelector("#phone")
-  .addEventListener("change", function validatePhone() {
-    const phone = document.querySelector("#phone").value;
-
-    let lengthPhone = phone.length;
-    let digits = phone.split("");
-
-    if (lengthPhone == 10) {
-      digits.splice(0, "", "(");
-      digits.splice(4, "", ")");
-      digits.splice(8, "", "-");
-      digits.splice(11, "", "-");
-    } else if (lengthPhone == 11) {
-      digits.splice(1, "", "(");
-      digits.splice(5, "", ")");
-      digits.splice(9, "", "-");
-      digits.splice(12, "", "-");
-    } else if (lengthPhone == 12) {
-      digits.splice(2, "", "(");
-      digits.splice(6, "", ")");
-      digits.splice(10, "", "-");
-      digits.splice(13, "", "-");
-    }
-
-    let almostPhone = digits.join("");
-
-    document.querySelector("#phone").value = "+7" + almostPhone.slice(-14);
-  });
-
-//10- для Preview загруженной фотографии котика
+//UX- Preview загруженной фотографии котика
 const formPhoto = document.getElementById("formPhoto");
 const photoPreview = document.getElementById("photoPreview");
 let photo;
@@ -237,7 +239,7 @@ function uploadFile(file) {
   reader.readAsDataURL(file);
 }
 
-//11- Чтобы при нажатии на кнопку "Сбросить" фото котика убиралось
+//UX- Сброс фото котика при нажатии на кнопку "Сбросить"
 document.querySelector("#resetForm").addEventListener("click", function () {
   location.reload();
 });
@@ -249,8 +251,6 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
   createCatCard();
   sendForm();
 });
-
-document.getElementById("successMessage").innerHTML = "";
 
 const sendForm = () => {
   fetch("https://httpbin.org/post", {
@@ -264,10 +264,7 @@ const sendForm = () => {
     .then((response) => response.json())
     .then(console.log("отправили форму"))
     .then(() => addSuccess())
-    .catch((error) => {
-      console.log(error);
-      () => addFailure();
-    });
+    .catch((error) => console.log(error));
 };
 
 function addSuccess() {
@@ -276,12 +273,8 @@ function addSuccess() {
   ).innerHTML = `Информация о вашем котике отправлена!`;
 }
 
-function addFailure() {
-  document.getElementById("errorsInfo").innerHTML =
-    "Что-то пошло не так и форма не отправилась";
-}
-
 //Создание КАРТОЧКИ  и ЭКЗЕМПЛЯРА котика
+//1-Собираем данные
 const createCatCard = () => {
   const petname = document.getElementById("petName").value;
   const race = document.querySelector("select[name='race']").value;
@@ -316,20 +309,20 @@ const createCatCard = () => {
     capitalFood = "не указано,";
   }
 
-  //Оформление: первое слово списка с большой буквы, все остальные с маленькой через запятую
+  //2- Оформляем список данных: первое слово списка с большой буквы, все остальные с маленькой через запятую
   let separateFood = capitalFood.split(",");
   let food = separateFood.join(", ").slice(0, -2);
 
-  //Экземпляр котика
+  //3- Создаем экземпляр котика
   let myCat = new Cat(petname, race, sex, food, comment, photo);
 
   if (petname && race && sex && food && photo) {
-    // Генерируем карточку и добавляем ее на страницу
+    //4- Генерируем карточку и добавляем ее на страницу
     const newCard = generateCard(petname, race, sex, food, comment, photo);
     document.querySelector("#cat").appendChild(newCard);
     console.log("добавили карточку котика на страницу");
 
-    //Добавляем в локальное хранилище
+    //5- Добавляем в локальное хранилище
     localStorage.setItem(
       `Cats Collection : ${myCat.petname}`,
       JSON.stringify(myCat)
@@ -338,6 +331,7 @@ const createCatCard = () => {
   }
 };
 
+//КЛАСС КОТИК
 class Cat {
   constructor(petname, race, sex, food, comment, photo) {
     this.petname = petname;
@@ -349,7 +343,7 @@ class Cat {
   }
 }
 
-//ГЕНЕРИРУЕМ КАРТОЧКУ
+//ГЕНЕРАЦИЯ И ОТРИСОВКА КАРТОЧКИ КОТИКА
 const generateCard = (petname, race, sex, food, comment, photo) => {
   //Рисуем карточку
   let card = document.createElement("div");
@@ -392,9 +386,9 @@ const generateCard = (petname, race, sex, food, comment, photo) => {
   card__edit.classList.add("card__edit");
   card__edit.innerHTML = "Редактировать";
 
-  let card__del = document.createElement("button");
-  card__del.classList.add("card__del");
-  card__del.innerHTML = "Удалить";
+  //let card__del = document.createElement("button");
+  //card__del.classList.add("card__del");
+  //card__del.innerHTML = "Удалить";
 
   card.appendChild(card__image);
   card.appendChild(card__main);
