@@ -1,9 +1,8 @@
 "use strict";
 
 //Приведение написания имен собственных, названий улиц и т.д. к красивому виду
+//1-Имя с большой буквы:
 document.getElementById("firstName").addEventListener("change", function () {
-  //Имя с большой буквы
-
   const firstName = document
     .getElementById("firstName")
     .value.trim()
@@ -11,9 +10,8 @@ document.getElementById("firstName").addEventListener("change", function () {
   document.querySelector("#firstName").value =
     firstName[0].toUpperCase() + firstName.slice(1); //Александра
 });
+//2-Фамилия с большой буквы
 document.getElementById("lastName").addEventListener("change", function () {
-  //Фамилия с большой буквы
-
   const initialLastName = document
     .getElementById("lastName")
     .value.trim()
@@ -37,26 +35,26 @@ document.getElementById("lastName").addEventListener("change", function () {
     document.querySelector("#lastName").value = lastName; //Бестужев-Марлинский
   }
 });
-document.getElementById("street").addEventListener("change", function () {
-  //Улица с большой буквы
 
+//3-Улица с большой буквы
+document.getElementById("street").addEventListener("change", function () {
   const street = document.getElementById("street").value.trim().toLowerCase();
 
   document.querySelector("#street").value =
     street[0].toUpperCase() + street.slice(1); //Ленина
 }); // сделала только заглавную первую букву, так как очень много нестандартных вариантов типа
 //"бульвар имени Карла Либкнехта и Розы Люксембург" или "5-я линия Васильевского острова"
-document.getElementById("house").addEventListener("change", function () {
-  //Дом в верхнем регистре
 
+//4-Дом в верхнем регистре
+document.getElementById("house").addEventListener("change", function () {
   document.querySelector("#house").value = document
     .getElementById("house")
     .value.trim()
     .toUpperCase(); //45-А
 });
-document.getElementById("city").addEventListener("change", function () {
-  //Город с большой буквы
 
+//5-Город с большой буквы
+document.getElementById("city").addEventListener("change", function () {
   const initialCity = document
     .getElementById("city")
     .value.trim()
@@ -110,24 +108,24 @@ document.getElementById("city").addEventListener("change", function () {
 
   document.querySelector("#city").value = city;
 });
-document.getElementById("email").addEventListener("change", function () {
-  //Эл.почта в нижнем регистре
 
+//6- Эл.почта в нижнем регистре
+document.getElementById("email").addEventListener("change", function () {
   document.querySelector("#email").value = document
     .getElementById("email")
     .value.trim()
     .toLowerCase();
 });
-document.getElementById("petName").addEventListener("change", function () {
-  //Имя кота с большой буквы
 
+//7- Имя кота с большой буквы
+document.getElementById("petName").addEventListener("change", function () {
   const petName = document.getElementById("petName").value.trim().toLowerCase();
 
   document.querySelector("#petName").value =
     petName[0].toUpperCase() + petName.slice(1); //Ярик
 });
 
-//Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбиралась опция
+//8-Чтобы при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбиралась опция
 document
   .querySelector("#drycheckbox")
   .addEventListener("keypress", function (e) {
@@ -189,8 +187,7 @@ document
     }
   });
 
-//Чтобы тел. номер сразу был красивым, (в html валидация тоже есть, все по-честному)
-
+//9-Чтобы тел. номер сразу был красивым, (в html валидация тоже есть, все по-честному)
 document
   .querySelector("#phone")
   .addEventListener("change", function validatePhone() {
@@ -221,7 +218,7 @@ document
     document.querySelector("#phone").value = "+7" + almostPhone.slice(-14);
   });
 
-//для Preview загруженной фотографии котика
+//10- для Preview загруженной фотографии котика
 const formPhoto = document.getElementById("formPhoto");
 const photoPreview = document.getElementById("photoPreview");
 let photo;
@@ -240,17 +237,17 @@ function uploadFile(file) {
   reader.readAsDataURL(file);
 }
 
-//Чтобы при нажатии на кнопку "Сбросить" фото котика убиралось
+//11- Чтобы при нажатии на кнопку "Сбросить" фото котика убиралось
 document.querySelector("#resetForm").addEventListener("click", function () {
   location.reload();
 });
 
-//ОТПРАВКА ФОРМЫ при нажатии на кнопку "Отправить"
+//ОТПРАВКА ФОРМЫ
 document.querySelector("#sendForm").addEventListener("click", function (event) {
   event.preventDefault();
 
-  sendForm();
   createCatCard();
+  sendForm();
 });
 
 document.getElementById("successMessage").innerHTML = "";
@@ -284,6 +281,7 @@ function addFailure() {
     "Что-то пошло не так и форма не отправилась";
 }
 
+//Создание КАРТОЧКИ  и ЭКЗЕМПЛЯРА котика
 const createCatCard = () => {
   const petname = document.getElementById("petName").value;
   const race = document.querySelector("select[name='race']").value;
@@ -324,17 +322,18 @@ const createCatCard = () => {
 
   //Экземпляр котика
   let myCat = new Cat(petname, race, sex, food, comment, photo);
-  console.log(myCat);
 
-  //(на будущее)
   if (petname && race && sex && food && photo) {
     // Генерируем карточку и добавляем ее на страницу
     const newCard = generateCard(petname, race, sex, food, comment, photo);
     document.querySelector("#cat").appendChild(newCard);
     console.log("добавили карточку котика на страницу");
 
-    //Добавляем в хранилище
-    localStorage.setItem("catsCollection", JSON.stringify(myCat));
+    //Добавляем в локальное хранилище
+    localStorage.setItem(
+      `Cats Collection : ${myCat.petname}`,
+      JSON.stringify(myCat)
+    );
     console.log("добавили котика в локальное хранилище");
   }
 };
@@ -350,8 +349,8 @@ class Cat {
   }
 }
 
-//ГЕНЕРИРУЕМ КАРТОЧКУ (на будущее и для проверки)
-const generateCard = (name, race, sex, food, comment, photo) => {
+//ГЕНЕРИРУЕМ КАРТОЧКУ
+const generateCard = (petname, race, sex, food, comment, photo) => {
   //Рисуем карточку
   let card = document.createElement("div");
   card.classList.add("card");
@@ -368,7 +367,7 @@ const generateCard = (name, race, sex, food, comment, photo) => {
 
   let card__title = document.createElement("h3");
   card__title.classList.add("card__title");
-  card__title.innerText = name;
+  card__title.innerText = petname;
 
   let card__race = document.createElement("div");
   card__race.classList.add("card__race");
