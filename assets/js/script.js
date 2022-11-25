@@ -256,6 +256,7 @@ document.getElementById("errorsInfo").innerHTML = "";
 const sendForm = () => {
   fetch("https://httpbin.org/post", {
     method: "POST",
+    // eslint-disable-next-line
     body: new FormData(form),
     headers: {
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
