@@ -7,7 +7,7 @@ It was improved by adding _HTML5 form-validation_ and _autoformatting of inputs 
 
 Week 19 upgrade consisted in creating a _`Cat` class_ with properties that correspond the questionnaire data, as well as creating the _objects of this class_ and _storing result in Local storage._
 
-21st week upgrade were: POST-request realised with FormData and JS form validation prior to form-sending.
+21st week upgrade were: POST-request realised with FormData and JS form-validation prior to form-sending. 
 
 ## Demo
 [Cat-Owner-Questionnaire]
@@ -18,7 +18,7 @@ Week 19 upgrade consisted in creating a _`Cat` class_ with properties that corre
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; CSS3<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; JavaScript<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; Form validation<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; GET&POST request<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; GET&POST requests<br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; FormData()<br> 
 
 ## Result
