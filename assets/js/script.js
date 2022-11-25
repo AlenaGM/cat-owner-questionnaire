@@ -251,7 +251,6 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
 });
 
 document.getElementById("successMessage").innerHTML = "";
-document.getElementById("errorsInfo").innerHTML = "";
 
 const sendForm = () => {
   fetch("https://httpbin.org/post", {
@@ -274,7 +273,7 @@ const sendForm = () => {
 function addSuccess() {
   document.getElementById(
     "successMessage"
-  ).innerHTML = `Поздравляем!<br> Информация о вашем котике отправлена!`;
+  ).innerHTML = `Информация о вашем котике отправлена!`;
 }
 
 function addFailure() {
