@@ -1,5 +1,5 @@
 # Cat-Owner-Questionnaire :cat:
-_JS Form created on 2nd week of studying at [ITGirlSchool] (study subject: "HTML5 form tags") and upgraded on week 18 ("Form validation"), week 19 ("OOP") and week 21 ("GET and POST requests")_
+_JavaScript Form created on 2nd week of studying at [ITGirlSchool] (study subject: "HTML5 form tags") and upgraded on week 18 ("Form validation"), week 19 ("OOP") and week 21 ("GET and POST requests")_
 
 A basic form with _text fields, select, checkbox, radio buttons, etc._ was built to train HTML5 form tags at the very beginning of code learning. 
 
