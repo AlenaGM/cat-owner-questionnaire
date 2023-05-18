@@ -283,6 +283,12 @@ body {
 }
 
 /* - Карточки ------------------------------------------ */
+#cat {
+  margin: 0px auto;
+  max-width: 560px;
+  min-width: 300px;
+}
+
 .card {
   max-width: 600px;
   position: relative;
