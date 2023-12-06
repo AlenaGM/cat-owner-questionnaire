@@ -33,6 +33,7 @@
             <legend class="form__legend">Сведения о владельце</legend>
 
             <p class="reqtext">* Поля, обязательные к заполнению</p>
+            <p class="reqtext">** Пожалуйста, заполняйте кириллицей</p>
 
             <div class="form__item">
               <label for="firstName" class="form__label">Имя *</label>
@@ -160,6 +161,7 @@
                 pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
                 maxlength="13"
                 tabindex="10"
+                required
               />
             </div>
           </fieldset>
@@ -254,6 +256,7 @@
                     type="radio"
                     name="sex"
                     value="Самец"
+                    checked
                     required
                   />
                   <label for="male" class="radio__label">Самец</label>
@@ -304,7 +307,9 @@
                     Выбрать
                   </div>
                 </div>
-                <div id="photoPreview" class="file__preview"></div>
+                <div id="photoPreview" class="file__preview">
+                  <img src="assets/img/cat-default.png" alt="photo" />
+                </div>
               </div>
             </div>
           </fieldset>
@@ -331,9 +336,8 @@
           </div>
           <p class="agreement">
             Нажимая на кнопку "Отправить", вы даете согласие на обработку
-            персональных данных и соглашаетесь c<a href="#">
-              Политикой конфиденциальности</a
-            >
+            персональных данных и соглашаетесь c
+            <a href="#">Политикой конфиденциальности</a>
           </p>
         </form>
       </div>

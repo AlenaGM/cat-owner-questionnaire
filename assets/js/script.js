@@ -1,117 +1,76 @@
 "use strict";
 
-//Приведение написания имен собственных, названий улиц и т.д. к красивому виду:
+//1- ПРИВЕДЕНИЕ НАПИСАНИЯ ИМЕН СОБСТВЕННЫХ К КРАСИВОМУ ВИДУ
 
-//1-Имя с большой буквы
+//1.1- Имя с большой буквы (Александра, Анна-Мария)
 document.getElementById("firstName").addEventListener("change", function () {
-  const firstName = document
-    .getElementById("firstName")
-    .value.trim()
-    .toLowerCase();
-  document.querySelector("#firstName").value =
-    firstName[0].toUpperCase() + firstName.slice(1); //Александра
+  const firstNames = document.getElementById("firstName").value;
+  document.querySelector("#firstName").value = capitalizeNames(firstNames);
 });
 
-//2-Фамилия с большой буквы
+//1.2- Фамилия с большой буквы (Петров, Петров-Водкин)
 document.getElementById("lastName").addEventListener("change", function () {
-  const initialLastName = document
-    .getElementById("lastName")
-    .value.trim()
-    .toLowerCase();
-  let lastName = initialLastName[0].toUpperCase() + initialLastName.slice(1); //Бестужев
-
-  const doubleLastName = lastName.split("-"); //На случай двойной фамилии
-
-  if (doubleLastName.length != 2) {
-    //Стандартная ситуация: одинарная фамилия
-
-    document.querySelector("#lastName").value = lastName; //Бестужев
-  } else {
-    //Нестандартная ситуация: двойная фамилия через дефис
-    const secondLastName = doubleLastName[1]; //марлинский
-    const userSecondLastName =
-      secondLastName[0].toUpperCase() + doubleLastName[1].slice(1); //Марлинский
-
-    lastName = doubleLastName[0] + "-" + userSecondLastName;
-
-    document.querySelector("#lastName").value = lastName; //Бестужев-Марлинский
-  }
+  const lastNames = document.getElementById("lastName").value;
+  document.querySelector("#lastName").value = capitalizeNames(lastNames);
 });
 
-//3-Улица с большой буквы
+//1.3- Кличка кота с большой буквы (Мурзик, Франсуа-Ксавье)
+document.getElementById("petName").addEventListener("change", function () {
+  const petNames = document.getElementById("petName").value;
+  document.querySelector("#petName").value = capitalizeNames(petNames);
+});
+
+const capitalizeNames = function (name) {
+  const names = name.trim().toLowerCase().split("-");
+  const namesUpper = [];
+  for (const n of names) {
+    namesUpper.push(n[0].toUpperCase() + n.slice(1));
+  }
+  return namesUpper.join("-");
+};
+
+//1.4- Улица с большой буквы
+// сделала только заглавную первую букву, так как очень много нестандартных вариантов типа
+//"бульвар имени Карла Либкнехта и Розы Люксембург" или "5-я линия Васильевского острова"
 document.getElementById("street").addEventListener("change", function () {
   const street = document.getElementById("street").value.trim().toLowerCase();
-
   document.querySelector("#street").value =
     street[0].toUpperCase() + street.slice(1); //Ленина
-}); // сделала только заглавную первую букву, так как очень много нестандартных вариантов типа
-//"бульвар имени Карла Либкнехта и Розы Люксембург" или "5-я линия Васильевского острова"
+});
 
-//4-Дом в верхнем регистре
+//1.5- Дом в верхнем регистре (45-А)
 document.getElementById("house").addEventListener("change", function () {
   document.querySelector("#house").value = document
     .getElementById("house")
     .value.trim()
-    .toUpperCase(); //45-А
+    .toUpperCase();
 });
 
-//5-Город с большой буквы
+//1.6- Город с большой буквы в начале и в составных названиях
+//(Петрозаводск, Великий Устюг, Йошкар-Ола, Комсомольск-на-Амуре, Ла Рош-сюр-Форон)
 document.getElementById("city").addEventListener("change", function () {
-  const initialCity = document
+  const cityParts = document
     .getElementById("city")
     .value.trim()
-    .toLowerCase();
-  let city = initialCity[0].toUpperCase() + initialCity.slice(1); //Петрозаводск
+    .toLowerCase()
+    .split(" ");
 
-  const multCityName = initialCity.split("-"); //На случай названия города из нескольких слов через дефис
-  const twoCityName = initialCity.split(" "); //На случай названия города из двух слов через пробел
-
-  if (multCityName.length == 1) {
-    //Стандартная ситуация: Петрозаводск
-    document.querySelector("#city").value = city; //Петрозаводск
-  } else if (multCityName.length == 2) {
-    //Нестандартная ситуация: Йошкар-Ола
-    const firstCityName = multCityName[0]; //йошкар
-    const secondCityName = multCityName[1]; //ола
-
-    city =
-      firstCityName[0].toUpperCase() +
-      multCityName[0].slice(1) +
-      "-" +
-      secondCityName[0].toUpperCase() +
-      multCityName[1].slice(1);
-  } else {
-    //Комсомольск-на-Амуре
-    const firstCityName = multCityName[0]; //комсомольск
-    const thirdCityName = multCityName[2]; //амуре
-
-    city =
-      firstCityName[0].toUpperCase() +
-      multCityName[0].slice(1) +
-      "-" +
-      multCityName[1] +
-      "-" +
-      thirdCityName[0].toUpperCase() +
-      multCityName[2].slice(1);
+  const cityUpper = [];
+  for (const part of cityParts) {
+    cityUpper.push(part[0].toUpperCase() + part.slice(1));
   }
 
-  if (twoCityName.length == 2) {
-    //Великий Устюг
-    const firstCityName = twoCityName[0]; //великий
-    const secondCityName = twoCityName[1]; //устюг
-
-    city =
-      firstCityName[0].toUpperCase() +
-      twoCityName[0].slice(1) +
-      " " +
-      secondCityName[0].toUpperCase() +
-      twoCityName[1].slice(1);
-  }
+  const almostCity = cityUpper.join(" ");
+  const cityIndex = almostCity.lastIndexOf("-") + 1;
+  const city =
+    almostCity.slice(0, cityIndex) +
+    almostCity[cityIndex].toUpperCase() +
+    almostCity.slice(cityIndex + 1);
 
   document.querySelector("#city").value = city;
 });
 
-//6- Эл.почта в нижнем регистре
+//1.7- Эл.почта в нижнем регистре
 document.getElementById("email").addEventListener("change", function () {
   document.querySelector("#email").value = document
     .getElementById("email")
@@ -119,15 +78,7 @@ document.getElementById("email").addEventListener("change", function () {
     .toLowerCase();
 });
 
-//7- Имя кота с большой буквы
-document.getElementById("petName").addEventListener("change", function () {
-  const petName = document.getElementById("petName").value.trim().toLowerCase();
-
-  document.querySelector("#petName").value =
-    petName[0].toUpperCase() + petName.slice(1); //Ярик
-});
-
-//8-Красивый тел.номер
+//1.8- Красивый тел.номер
 document
   .querySelector("#phone")
   .addEventListener("change", function validatePhone() {
@@ -158,7 +109,7 @@ document
     document.querySelector("#phone").value = "+7" + almostPhone.slice(-14);
   });
 
-//UX - при перемещениями между радиокнопками/чекбоксами с помощью табуляции при нажатии клавиши "ввод" выбирается опция
+//2- UX: ПРИ ПЕРЕМЕЩЕНИЯМИ МЕЖДУ РАДИОКНОПКАМИ/ЧЕКБОКСАМИ С ПОМОЩЬЮ ТАБУЛЯЦИИ ПРИ НАЖАТИИ "ВВОД" ВЫБИРАЕТСЯ ОПЦИЯ
 document
   .querySelector("#drycheckbox")
   .addEventListener("keypress", function (e) {
@@ -220,7 +171,7 @@ document
     }
   });
 
-//UX- Preview загруженной фотографии котика
+//3- PREVIEW ЗАГРУЖЕННОЙ ФОТОГРАФИИ КОТИКА
 const formPhoto = document.getElementById("formPhoto");
 const photoPreview = document.getElementById("photoPreview");
 let photo;
@@ -239,12 +190,12 @@ function uploadFile(file) {
   reader.readAsDataURL(file);
 }
 
-//UX- Сброс фото котика при нажатии на кнопку "Сбросить"
+//4- СБРОС ФОТО КОТИКА ПРИ НАЖАТИИ НА КЛАВИШУ "СБРОСИТЬ"
 document.querySelector("#resetForm").addEventListener("click", function () {
   location.reload();
 });
 
-//ОТПРАВКА ФОРМЫ
+//5- ОТПРАВКА ФОРМЫ
 document.querySelector("#sendForm").addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -274,8 +225,8 @@ function addSuccess() {
 }
 
 //Создание КАРТОЧКИ  и ЭКЗЕМПЛЯРА котика
-//1-Собираем данные
 const createCatCard = () => {
+  //1-Собираем данные
   const petname = document.getElementById("petName").value;
   const race = document.querySelector("select[name='race']").value;
   const maleFemale = document.querySelectorAll('input[name="sex"]');
@@ -316,7 +267,7 @@ const createCatCard = () => {
   //3- Создаем экземпляр котика
   let myCat = new Cat(petname, race, sex, food, comment, photo);
 
-  if (petname && race && sex && food && photo) {
+  if (petname && race && sex && food) {
     //4- Генерируем карточку и добавляем ее на страницу
     const newCard = generateCard(petname, race, sex, food, comment, photo);
     document.querySelector("#cat").appendChild(newCard);
@@ -351,7 +302,7 @@ const generateCard = (petname, race, sex, food, comment, photo) => {
 
   let card__image = document.createElement("img");
   card__image.classList.add("card__image");
-  card__image.src = photo;
+  card__image.src = photo ?? "assets/img/cat-lover.png";
 
   let card__main = document.createElement("div");
   card__main.classList.add("card__main");
@@ -386,19 +337,12 @@ const generateCard = (petname, race, sex, food, comment, photo) => {
   card__edit.classList.add("card__edit");
   card__edit.innerHTML = "Редактировать";
 
-  //let card__del = document.createElement("button");
-  //card__del.classList.add("card__del");
-  //card__del.innerHTML = "Удалить";
-
   card.appendChild(card__image);
   card.appendChild(card__main);
 
   card__main.appendChild(card__info);
   card__main.appendChild(card__text);
   card__main.appendChild(card__buttons);
-
-  //card__buttons.appendChild(card__edit);
-  //card__buttons.appendChild(card__del);
 
   card__info.appendChild(card__title);
   card__info.appendChild(card__race);

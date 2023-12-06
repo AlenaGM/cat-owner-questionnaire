@@ -274,7 +274,15 @@ body {
   font-size: 12px;
   text-align: right;
   line-height: 140%;
-  margin: -8px 0px 12px 0px;
+  margin: 0;
+}
+
+.reqtext:first-of-type {
+  margin-top: -8px;
+}
+
+.reqtext:last-of-type {
+  margin: 0px 0px 12px;
 }
 
 .form__success {
