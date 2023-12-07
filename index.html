@@ -41,10 +41,11 @@
                 name="firstname"
                 class="form__input"
                 value=""
+                minlength="1"
                 maxlength="40"
-                tabindex="1"
                 pattern="[А-ЯЁа-яё\- ]+"
                 required
+                tabindex="1"
               />
             </div>
             <div class="form__item">
@@ -55,10 +56,11 @@
                 name="lastname"
                 class="form__input"
                 value=""
+                minlength="1"
                 maxlength="40"
-                tabindex="2"
                 pattern="[А-ЯЁа-яё\- ]+"
                 required
+                tabindex="2"
               />
             </div>
 
@@ -74,9 +76,9 @@
                   class="form__input"
                   maxlength="132"
                   value=""
-                  tabindex="4"
                   pattern="[А-ЯЁа-яё0-9\- ]+"
                   required
+                  tabindex="4"
                 />
                 <!--Имя улицы в 132 буквы: Территория, изъятая из земель подсобного хозяйства Всесоюзного
                                 центрального совета профессиональных союзов для организации крестьянского хозяйства-->
@@ -90,9 +92,9 @@
                   class="form__input"
                   value=""
                   maxlength="4"
-                  tabindex="5"
                   pattern="[А-ЯЁа-яё0-9\- ]+"
                   required
+                  tabindex="5"
                 />
               </div>
               <div class="form__item">
@@ -100,11 +102,11 @@
                 <input
                   id="flat"
                   type="number"
-                  max="4000"
-                  min="1"
                   name="flat"
                   class="form__input"
                   value=""
+                  max="4000"
+                  min="1"
                   tabindex="6"
                 />
               </div>
@@ -116,10 +118,11 @@
                   name="city"
                   class="form__input"
                   value=""
+                  minlength="1"
                   maxlength="40"
-                  tabindex="7"
                   pattern="[А-ЯЁа-яё0-9\- ]+"
                   required
+                  tabindex="7"
                 />
               </div>
               <div class="form__item">
@@ -127,12 +130,15 @@
                 <input
                   id="postalcode"
                   type="number"
-                  max="700000"
-                  min="100000"
+                  name="postalcode"
                   class="form__input"
                   value=""
-                  tabindex="8"
+                  max="700000"
+                  min="100000"
+                  minlength="6"
+                  maxlength="6"
                   required
+                  tabindex="8"
                 />
               </div>
             </fieldset>
@@ -145,10 +151,9 @@
                 name="email"
                 class="form__input"
                 value=""
-                tabindex="9"
-                pattern="^(?=[A-Z0-9][A-Z0-9@._%+-]{5,253}+$)[A-Z0-9._%+-]{1,64}+@
-                (?:(?=[A-Z0-9-]{1,63}+\.)[A-Z0-9]++(?:-[A-Z0-9]++)*+\.){1,8}+[A-Z]{2,63}+$"
+                pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z0-9_\-]+"
                 required
+                tabindex="9"
               />
             </div>
             <div class="form__item">
@@ -161,9 +166,8 @@
                 value=""
                 minlength="10"
                 maxlength="13"
-                tabindex="10"
                 pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
-                required
+                tabindex="10"
               />
             </div>
           </fieldset>
@@ -312,6 +316,7 @@
           </fieldset>
 
           <div id="successMessage" class="form__success"></div>
+          <div id="failMessage" class="form__success form__success-fail"></div>
 
           <div class="form__buttons">
             <button

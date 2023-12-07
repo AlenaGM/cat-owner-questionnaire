@@ -120,7 +120,7 @@ body {
   color: rgb(50, 140, 201);
 }
 
-.form__input:required:valid {
+.form__input:valid {
   background: url(../img/check.svg) 98% center/18px no-repeat;
 }
 
@@ -306,6 +306,10 @@ body {
 .form__success {
   color: #007f80;
   text-align: center;
+}
+
+.form__success-fail {
+  color: mediumvioletred;
 }
 
 /* - Карточки ------------------------------------------ */

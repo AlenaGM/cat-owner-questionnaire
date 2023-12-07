@@ -46,7 +46,7 @@ document.getElementById("house").addEventListener("change", function () {
     .toUpperCase();
 });
 
-//1.6- Город с большой буквы в начале и в составных названиях
+//1.6- Город с заглавной буквы, заглавные буквы в составных названиях
 //(Петрозаводск, Великий Устюг, Йошкар-Ола, Комсомольск-на-Амуре, Ла Рош-сюр-Форон)
 document.getElementById("city").addEventListener("change", function () {
   const cityParts = document
@@ -60,14 +60,13 @@ document.getElementById("city").addEventListener("change", function () {
     cityUpper.push(part[0].toUpperCase() + part.slice(1));
   }
 
-  const almostCity = cityUpper.join(" ");
-  const cityIndex = almostCity.lastIndexOf("-") + 1;
-  const city =
-    almostCity.slice(0, cityIndex) +
-    almostCity[cityIndex].toUpperCase() +
-    almostCity.slice(cityIndex + 1);
+  const city = cityUpper.join(" ");
+  const cityIndex = city.lastIndexOf("-") + 1;
 
-  document.querySelector("#city").value = city;
+  document.querySelector("#city").value =
+    city.slice(0, cityIndex) +
+    city[cityIndex].toUpperCase() +
+    city.slice(cityIndex + 1);
 });
 
 //1.7- Эл.почта в нижнем регистре
@@ -78,36 +77,31 @@ document.getElementById("email").addEventListener("change", function () {
     .toLowerCase();
 });
 
-//1.8- Красивый тел.номер
-document
-  .querySelector("#phone")
-  .addEventListener("change", function validatePhone() {
-    const phone = document.querySelector("#phone").value;
+//1.8- Красивый номер мобильного тел.
+document.querySelector("#phone").addEventListener("change", function () {
+  let phone = document.querySelector("#phone").value;
+  let digits = phone.split("");
 
-    let lengthPhone = phone.length;
-    let digits = phone.split("");
+  if (phone.length == 10) {
+    digits.splice(0, "", "(");
+    digits.splice(4, "", ")");
+    digits.splice(8, "", "-");
+    digits.splice(11, "", "-");
+  } else if (phone.length == 11) {
+    digits.splice(1, "", "(");
+    digits.splice(5, "", ")");
+    digits.splice(9, "", "-");
+    digits.splice(12, "", "-");
+  } else if (phone.length == 12) {
+    digits.splice(2, "", "(");
+    digits.splice(6, "", ")");
+    digits.splice(10, "", "-");
+    digits.splice(13, "", "-");
+  }
 
-    if (lengthPhone == 10) {
-      digits.splice(0, "", "(");
-      digits.splice(4, "", ")");
-      digits.splice(8, "", "-");
-      digits.splice(11, "", "-");
-    } else if (lengthPhone == 11) {
-      digits.splice(1, "", "(");
-      digits.splice(5, "", ")");
-      digits.splice(9, "", "-");
-      digits.splice(12, "", "-");
-    } else if (lengthPhone == 12) {
-      digits.splice(2, "", "(");
-      digits.splice(6, "", ")");
-      digits.splice(10, "", "-");
-      digits.splice(13, "", "-");
-    }
-
-    let almostPhone = digits.join("");
-
-    document.querySelector("#phone").value = "+7" + almostPhone.slice(-14);
-  });
+  let almostPhone = digits.join("");
+  document.querySelector("#phone").value = "+7" + almostPhone.slice(-14);
+});
 
 //2- UX: ПРИ ПЕРЕМЕЩЕНИЯМИ МЕЖДУ РАДИОКНОПКАМИ/ЧЕКБОКСАМИ С ПОМОЩЬЮ ТАБУЛЯЦИИ ПРИ НАЖАТИИ "ВВОД" ВЫБИРАЕТСЯ ОПЦИЯ
 document
