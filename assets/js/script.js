@@ -186,7 +186,7 @@ function uploadFile(file) {
 
 //4- СБРОС ФОТО КОТИКА ПРИ НАЖАТИИ НА КЛАВИШУ "СБРОСИТЬ"
 document.querySelector("#resetForm").addEventListener("click", function () {
-  location.reload();
+  photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
 });
 
 //5- ОТПРАВКА ФОРМЫ
@@ -195,6 +195,7 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
 
   createCatCard();
   sendForm();
+  clearForm();
 });
 
 const sendForm = () => {
@@ -209,7 +210,10 @@ const sendForm = () => {
     .then((response) => response.json())
     .then(console.log("отправили форму"))
     .then(() => addSuccess())
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      addFail();
+      console.log(error.value);
+    });
 };
 
 function addSuccess() {
@@ -217,6 +221,25 @@ function addSuccess() {
     "successMessage"
   ).innerHTML = `Информация о вашем котике отправлена!`;
 }
+
+function addFail() {
+  document.getElementById(
+    "failMessage"
+  ).innerHTML = `Информация не была отправлена! Проверьте, правильно ли заполнены поля анкеты`;
+}
+
+const clearForm = () => {
+  console.log("все чисто");
+  let inputs = document.querySelectorAll("input");
+
+  inputs.forEach(function (input) {
+    input.value = "";
+    if (input.type == "checkbox" || input.id == "female") input.checked = false;
+    if (input.id == "male") input.checked = true;
+  });
+
+  photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
+};
 
 //Создание КАРТОЧКИ  и ЭКЗЕМПЛЯРА котика
 const createCatCard = () => {
