@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap&subset=cyrillic-ext"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="JavaScript-Form: Questionnaire for cat owners. Training project for ITGirlSchool"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/normalize.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="shortcut icon" href="assets/img/laughing.png" type="img/png" />
@@ -154,7 +152,7 @@
               />
             </div>
             <div class="form__item">
-              <label for="phone" class="form__label">Телефон</label>
+              <label for="phone" class="form__label">Моб.телефон</label>
               <input
                 id="phone"
                 type="tel"
@@ -189,8 +187,8 @@
             </div>
 
             <div class="form__item">
-              <div class="form__label">Порода</div>
-              <select name="race" class="form__select" tabindex="12">
+              <label for="race" class="form__label">Порода</label>
+              <select name="race" id="race" class="form__select" tabindex="12">
                 <option value="none" disabled selected>Выберите породу</option>
                 <option value="неизвестная">не знаю породы</option>
                 <option value="Абиссинская">Абиссинская</option>
@@ -209,10 +207,8 @@
                 <option value="Сфинкс">Сфинкс</option>
               </select>
             </div>
-
             <div class="form__item">
               <div class="form__label">Питание</div>
-
               <div class="form__checkbox">
                 <div class="checkbox__item" id="drycheckbox" tabindex="13">
                   <input
@@ -249,10 +245,8 @@
                 </div>
               </div>
             </div>
-
             <div class="form__item">
               <div class="form__label">Пол *</div>
-
               <div class="form__radio">
                 <div class="radio__item" id="maleradio" tabindex="16">
                   <input
@@ -277,7 +271,6 @@
                 </div>
               </div>
             </div>
-
             <div class="form__item form__comment">
               <label
                 for="comment"
@@ -291,7 +284,6 @@
                 tabindex="18"
               ></textarea>
             </div>
-
             <div class="form__item form__file">
               <div class="form__label photo__label">Приложить фото питомца</div>
               <div>
@@ -302,6 +294,7 @@
                     type="file"
                     name="photo"
                     class="file__input"
+                    aria-label="add photo"
                     tabindex="19"
                   />
                   <div

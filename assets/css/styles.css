@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
+
 html,
 body {
   height: 100%;
@@ -9,7 +11,7 @@ body {
 
 .wrapper {
   overflow: hidden;
-  min-height: 100%;
+  min-height: 100vh;
   padding: 0 16px;
 }
 
@@ -35,9 +37,15 @@ body {
   max-width: 300px;
 }
 
+.form__image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .form__title {
   font-size: 24px;
-  color: darkcyan;
+  color: #007f80;
   letter-spacing: 0.1em;
   line-height: 180%;
   margin: 24px 0px 0px 0px;
@@ -55,7 +63,7 @@ body {
 }
 
 .fieldset_color-cyan {
-  border: solid 1px darkcyan;
+  border: solid 1px #007f80;
   width: 95%;
 }
 
@@ -66,7 +74,7 @@ body {
 }
 
 .legend_color-cyan {
-  color: darkcyan;
+  color: #007f80;
   font-weight: bold;
 }
 
@@ -176,6 +184,16 @@ body {
   position: relative;
 }
 
+.file__preview {
+  max-width: 120px;
+}
+
+.file__preview img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .file__input {
   position: absolute;
   top: 0;
@@ -229,7 +247,7 @@ body {
 }
 
 .button_color-cyan {
-  background-color: #008b8b;
+  background-color: #007f80;
 }
 
 .button_color-violetred {
@@ -286,7 +304,7 @@ body {
 }
 
 .form__success {
-  color: #008b8b;
+  color: #007f80;
   text-align: center;
 }
 
@@ -304,7 +322,7 @@ body {
   flex-direction: row;
   padding-top: 20px;
   padding-bottom: 20px;
-  border: solid 1px darkcyan;
+  border: solid 1px #007f80;
   border-radius: 8px;
   padding: 16px;
   margin: 20px 0px;
@@ -371,7 +389,7 @@ body {
 
 @media screen and (max-width: 614px) {
   .fieldset_color-cyan {
-    border: solid 1px darkcyan;
+    border: solid 1px #007f80;
     width: 92%;
     justify-self: center;
   }
