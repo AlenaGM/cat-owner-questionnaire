@@ -143,6 +143,7 @@ document
 document.querySelector("#maleradio").addEventListener("keypress", function (e) {
   if (e.key === "Enter" && male.hasAttribute("checked", "")) {
     male.removeAttribute("checked", "");
+    female.setAttribute("checked", "");
   } else {
     female.removeAttribute("checked", "");
     male.setAttribute("checked", "");
@@ -154,6 +155,7 @@ document
   .addEventListener("keypress", function (e) {
     if (e.key === "Enter" && female.hasAttribute("checked", "")) {
       female.removeAttribute("checked", "");
+      male.setAttribute("checked", "");
     } else {
       male.removeAttribute("checked", "");
       female.setAttribute("checked", "");
@@ -234,9 +236,9 @@ function clearForm() {
   for (const input of inputs) {
     if (input.type == "checkbox" || input.id == "female")
       input.removeAttribute("checked", "");
-    if (input.id == "male") input.setAttribute("checked", "");
   }
 
+  document.querySelector("#male").setAttribute("checked", "");
   photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
 }
 

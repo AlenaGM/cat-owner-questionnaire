@@ -15,335 +15,332 @@
   </head>
 
   <body>
-    <div class="wrapper">
-      <div class="form">
-        <form method="post" action="/post" id="form" class="form__body">
-          <div class="form__image">
-            <img
-              src="assets/img/cat-lover.png"
-              alt="Эмблема клуба владедьцев кошек"
-              class="form__image"
+    <div class="form">
+      <form method="post" action="/post" id="form" class="form__body">
+        <div class="form__image">
+          <img
+            src="assets/img/cat-lover.png"
+            alt="Эмблема клуба владедьцев кошек"
+            class="form__image"
+          />
+        </div>
+        <h1 class="form__title">Анкета владельца кошки</h1>
+
+        <fieldset class="form__fielset">
+          <legend class="form__legend">Сведения о владельце</legend>
+
+          <p class="reqtext">* Поля, обязательные к заполнению</p>
+          <p class="reqtext">** Пожалуйста, заполняйте кириллицей</p>
+
+          <div class="form__item">
+            <label for="firstName" class="form__label">Имя *</label>
+            <input
+              id="firstName"
+              type="text"
+              name="firstname"
+              class="form__input"
+              value=""
+              minlength="1"
+              maxlength="40"
+              pattern="[А-ЯЁа-яё\- ]+"
+              required
+              tabindex="1"
             />
           </div>
-          <h1 class="form__title">Анкета владельца кошки</h1>
-
-          <fieldset class="form__fielset">
-            <legend class="form__legend">Сведения о владельце</legend>
-
-            <p class="reqtext">* Поля, обязательные к заполнению</p>
-            <p class="reqtext">** Пожалуйста, заполняйте кириллицей</p>
-
-            <div class="form__item">
-              <label for="firstName" class="form__label">Имя *</label>
-              <input
-                id="firstName"
-                type="text"
-                name="firstname"
-                class="form__input"
-                value=""
-                minlength="1"
-                maxlength="40"
-                pattern="[А-ЯЁа-яё\- ]+"
-                required
-                tabindex="1"
-              />
-            </div>
-            <div class="form__item">
-              <label for="lastName" class="form__label">Фамилия *</label>
-              <input
-                id="lastName"
-                type="text"
-                name="lastname"
-                class="form__input"
-                value=""
-                minlength="1"
-                maxlength="40"
-                pattern="[А-ЯЁа-яё\- ]+"
-                required
-                tabindex="2"
-              />
-            </div>
-
-            <fieldset class="form__fielset fieldset_color-cyan">
-              <legend class="form__legend legend_color-cyan">Адрес</legend>
-
-              <div class="form__item">
-                <label for="street" class="form__label">Улица *</label>
-                <input
-                  id="street"
-                  type="text"
-                  name="street"
-                  class="form__input"
-                  maxlength="132"
-                  value=""
-                  pattern="[А-ЯЁа-яё0-9\- ]+"
-                  required
-                  tabindex="4"
-                />
-                <!--Имя улицы в 132 буквы: Территория, изъятая из земель подсобного хозяйства Всесоюзного
-                                центрального совета профессиональных союзов для организации крестьянского хозяйства-->
-              </div>
-              <div class="form__item">
-                <label for="house" class="form__label">Дом *</label>
-                <input
-                  id="house"
-                  type="text"
-                  name="house"
-                  class="form__input"
-                  value=""
-                  maxlength="4"
-                  pattern="[А-ЯЁа-яё0-9\- ]+"
-                  required
-                  tabindex="5"
-                />
-              </div>
-              <div class="form__item">
-                <label for="flat" class="form__label">Квартира</label>
-                <input
-                  id="flat"
-                  type="number"
-                  name="flat"
-                  class="form__input"
-                  value=""
-                  max="4000"
-                  min="1"
-                  tabindex="6"
-                />
-              </div>
-              <div class="form__item">
-                <label for="city" class="form__label">Город *</label>
-                <input
-                  id="city"
-                  type="text"
-                  name="city"
-                  class="form__input"
-                  value=""
-                  minlength="1"
-                  maxlength="40"
-                  pattern="[А-ЯЁа-яё0-9\- ]+"
-                  required
-                  tabindex="7"
-                />
-              </div>
-              <div class="form__item">
-                <label for="postalcode" class="form__label">Индекс *</label>
-                <input
-                  id="postalcode"
-                  type="number"
-                  name="postalcode"
-                  class="form__input"
-                  value=""
-                  max="700000"
-                  min="100000"
-                  minlength="6"
-                  maxlength="6"
-                  required
-                  tabindex="8"
-                />
-              </div>
-            </fieldset>
-
-            <div class="form__item">
-              <label for="email" class="form__label">Эл.почта *</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                class="form__input"
-                value=""
-                pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z0-9_\-]+"
-                required
-                tabindex="9"
-              />
-            </div>
-            <div class="form__item">
-              <label for="phone" class="form__label">Моб.телефон</label>
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                class="form__input"
-                value=""
-                minlength="10"
-                maxlength="13"
-                pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
-                tabindex="10"
-              />
-            </div>
-          </fieldset>
-
-          <fieldset class="form__fielset">
-            <legend class="form__legend">Сведения о питомце</legend>
-
-            <div class="form__item">
-              <label for="petName" class="form__label">Кличка *</label>
-              <input
-                id="petName"
-                type="text"
-                name="petname"
-                class="form__input checkbox__input"
-                value=""
-                maxlength="40"
-                tabindex="11"
-                pattern="[А-ЯЁа-яё\- ]+"
-                required
-              />
-            </div>
-
-            <div class="form__item">
-              <label for="race" class="form__label">Порода</label>
-              <select name="race" id="race" class="form__select" tabindex="12">
-                <option value="" disabled selected>Выберите породу</option>
-                <option value="неизвестная">не знаю породы</option>
-                <option value="Абиссинская">абиссинская</option>
-                <option value="Американская короткошерстная">
-                  Американская короткошерстная
-                </option>
-                <option value="Бенгальская">бенгальская</option>
-                <option value="Бирманская">бирманская</option>
-                <option value="Гималайская">гималайская</option>
-                <option value="Девон-рекс">девон-рекс</option>
-                <option value="Мейн-кун">мейн-кун</option>
-                <option value="Ориентальная кошка">ориентальная кошка</option>
-                <option value="Персидская">персидская</option>
-                <option value="Рэгдолл">рэгдолл</option>
-                <option value="Сиамская">сиамская</option>
-                <option value="Сфинкс">сфинкс</option>
-              </select>
-            </div>
-            <div class="form__item">
-              <div class="form__label">Питание</div>
-              <div class="form__checkbox">
-                <div class="checkbox__item" id="drycheckbox" tabindex="13">
-                  <input
-                    id="dryfood"
-                    type="checkbox"
-                    name="food"
-                    value="сухой корм"
-                  />
-                  <label for="dryfood" class="checkbox__label"
-                    >Сухой корм</label
-                  >
-                </div>
-                <div class="checkbox__item" id="wetcheckbox" tabindex="14">
-                  <input
-                    id="wetfood"
-                    type="checkbox"
-                    name="food"
-                    value="влажный корм"
-                  />
-                  <label for="wetfood" class="checkbox__label"
-                    >Влажный корм</label
-                  >
-                </div>
-                <div class="checkbox__item" id="natcheckbox" tabindex="15">
-                  <input
-                    id="naturalfood"
-                    type="checkbox"
-                    name="food"
-                    value="натуральный корм"
-                  />
-                  <label for="naturalfood" class="checkbox__label"
-                    >Натуральный корм</label
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="form__item">
-              <div class="form__label">Пол *</div>
-              <div class="form__radio">
-                <div class="radio__item" id="maleradio" tabindex="16">
-                  <input
-                    id="male"
-                    type="radio"
-                    name="sex"
-                    value="самец"
-                    checked
-                    required
-                  />
-                  <label for="male" class="radio__label">Самец</label>
-                </div>
-                <div class="radio__item" id="femaleradio" tabindex="17">
-                  <input
-                    id="female"
-                    type="radio"
-                    name="sex"
-                    value="самка"
-                    required
-                  />
-                  <label for="female" class="radio__label">Самка</label>
-                </div>
-              </div>
-            </div>
-            <div class="form__item form__comment">
-              <label
-                for="comment"
-                class="form__legend legend_color-cyan comment__label"
-                >Ваш комментарий</label
-              >
-              <textarea
-                id="comment"
-                name="comment"
-                class="form__fielset fieldset_color-cyan comment"
-                tabindex="18"
-              ></textarea>
-            </div>
-            <div class="form__item form__file">
-              <div class="form__label photo__label">Приложить фото питомца</div>
-              <div>
-                <div class="file__item">
-                  <input
-                    id="formPhoto"
-                    accept=".jpg, .png, .gif"
-                    type="file"
-                    name="photo"
-                    class="file__input"
-                    aria-label="add photo"
-                    tabindex="19"
-                  />
-                  <div
-                    id="choosePhoto"
-                    class="file__button button button_color-gray"
-                  >
-                    Выбрать
-                  </div>
-                </div>
-                <div id="photoPreview" class="file__preview">
-                  <img src="assets/img/cat-default.png" alt="photo" />
-                </div>
-              </div>
-            </div>
-          </fieldset>
-
-          <div id="successMessage" class="form__success"></div>
-          <div id="failMessage" class="form__success form__success-fail"></div>
-
-          <div class="form__buttons">
-            <button
-              id="sendForm"
-              type="submit"
-              class="button button_color-cyan"
-              tabindex="20"
-            >
-              Отправить
-            </button>
-            <button
-              id="resetForm"
-              type="reset"
-              class="button button_color-violetred"
-              tabindex="21"
-            >
-              Сбросить
-            </button>
+          <div class="form__item">
+            <label for="lastName" class="form__label">Фамилия *</label>
+            <input
+              id="lastName"
+              type="text"
+              name="lastname"
+              class="form__input"
+              value=""
+              minlength="1"
+              maxlength="40"
+              pattern="[А-ЯЁа-яё\- ]+"
+              required
+              tabindex="2"
+            />
           </div>
-          <p class="agreement">
-            Нажимая на кнопку "Отправить", вы даете согласие на обработку
-            персональных данных и соглашаетесь c
-            <a href="#">Политикой конфиденциальности</a>
-          </p>
-        </form>
-      </div>
+
+          <fieldset class="form__fielset fieldset_color-cyan">
+            <legend class="form__legend legend_color-cyan">Адрес</legend>
+
+            <div class="form__item">
+              <label for="street" class="form__label">Улица *</label>
+              <input
+                id="street"
+                type="text"
+                name="street"
+                class="form__input"
+                maxlength="132"
+                value=""
+                pattern="[А-ЯЁа-яё0-9\- ]+"
+                required
+                tabindex="4"
+              />
+              <!--Имя улицы в 132 буквы: Территория, изъятая из земель подсобного хозяйства Всесоюзного
+                                центрального совета профессиональных союзов для организации крестьянского хозяйства-->
+            </div>
+            <div class="form__item">
+              <label for="house" class="form__label">Дом *</label>
+              <input
+                id="house"
+                type="text"
+                name="house"
+                class="form__input"
+                value=""
+                maxlength="4"
+                pattern="[А-ЯЁа-яё0-9\- ]+"
+                required
+                tabindex="5"
+              />
+            </div>
+            <div class="form__item">
+              <label for="flat" class="form__label">Квартира</label>
+              <input
+                id="flat"
+                type="number"
+                name="flat"
+                class="form__input"
+                value=""
+                max="4000"
+                min="1"
+                tabindex="6"
+              />
+            </div>
+            <div class="form__item">
+              <label for="city" class="form__label">Город *</label>
+              <input
+                id="city"
+                type="text"
+                name="city"
+                class="form__input"
+                value=""
+                minlength="1"
+                maxlength="40"
+                pattern="[А-ЯЁа-яё0-9\- ]+"
+                required
+                tabindex="7"
+              />
+            </div>
+            <div class="form__item">
+              <label for="postalcode" class="form__label">Индекс *</label>
+              <input
+                id="postalcode"
+                type="number"
+                name="postalcode"
+                class="form__input"
+                value=""
+                max="700000"
+                min="100000"
+                minlength="6"
+                maxlength="6"
+                required
+                tabindex="8"
+              />
+            </div>
+          </fieldset>
+
+          <div class="form__item">
+            <label for="email" class="form__label">Эл.почта *</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              class="form__input"
+              value=""
+              pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9._\-]+\.[a-zA-Z0-9_\-]+"
+              required
+              tabindex="9"
+            />
+          </div>
+          <div class="form__item">
+            <label for="phone" class="form__label">Моб.тел.</label>
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              class="form__input"
+              value=""
+              minlength="10"
+              maxlength="13"
+              pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+              tabindex="10"
+            />
+          </div>
+        </fieldset>
+
+        <fieldset class="form__fielset">
+          <legend class="form__legend">Сведения о питомце</legend>
+
+          <div class="form__item">
+            <label for="petName" class="form__label">Кличка *</label>
+            <input
+              id="petName"
+              type="text"
+              name="petname"
+              class="form__input checkbox__input"
+              value=""
+              maxlength="40"
+              tabindex="11"
+              pattern="[А-ЯЁа-яё\- ]+"
+              required
+            />
+          </div>
+
+          <div class="form__item">
+            <label for="race" class="form__label">Порода</label>
+            <select name="race" id="race" class="form__select" tabindex="12">
+              <option value="" disabled selected>Выберите породу</option>
+              <option value="неизвестная">не знаю породы</option>
+              <option value="Абиссинская">абиссинская</option>
+              <option value="Американская короткошерстная">
+                Американская короткошерстная
+              </option>
+              <option value="Бенгальская">бенгальская</option>
+              <option value="Бирманская">бирманская</option>
+              <option value="Гималайская">гималайская</option>
+              <option value="Девон-рекс">девон-рекс</option>
+              <option value="Мейн-кун">мейн-кун</option>
+              <option value="Ориентальная кошка">ориентальная кошка</option>
+              <option value="Персидская">персидская</option>
+              <option value="Рэгдолл">рэгдолл</option>
+              <option value="Сиамская">сиамская</option>
+              <option value="Сфинкс">сфинкс</option>
+            </select>
+          </div>
+          <div class="form__item">
+            <div class="form__label">Питание</div>
+            <div class="form__checkbox">
+              <div class="checkbox__item" id="drycheckbox" tabindex="13">
+                <input
+                  id="dryfood"
+                  type="checkbox"
+                  name="food"
+                  value="сухой корм"
+                />
+                <label for="dryfood" class="checkbox__label">Сухой корм</label>
+              </div>
+              <div class="checkbox__item" id="wetcheckbox" tabindex="14">
+                <input
+                  id="wetfood"
+                  type="checkbox"
+                  name="food"
+                  value="влажный корм"
+                />
+                <label for="wetfood" class="checkbox__label"
+                  >Влажный корм</label
+                >
+              </div>
+              <div class="checkbox__item" id="natcheckbox" tabindex="15">
+                <input
+                  id="naturalfood"
+                  type="checkbox"
+                  name="food"
+                  value="натуральный корм"
+                />
+                <label for="naturalfood" class="checkbox__label"
+                  >Натуральный корм</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="form__item">
+            <div class="form__label">Пол *</div>
+            <div class="form__radio">
+              <div class="radio__item" id="maleradio" tabindex="16">
+                <input
+                  id="male"
+                  type="radio"
+                  name="sex"
+                  value="самец"
+                  checked
+                  required
+                />
+                <label for="male" class="radio__label">Самец</label>
+              </div>
+              <div class="radio__item" id="femaleradio" tabindex="17">
+                <input
+                  id="female"
+                  type="radio"
+                  name="sex"
+                  value="самка"
+                  required
+                />
+                <label for="female" class="radio__label">Самка</label>
+              </div>
+            </div>
+          </div>
+          <div class="form__item form__comment">
+            <label
+              for="comment"
+              class="form__legend legend_color-cyan comment__label"
+              >Ваш комментарий</label
+            >
+            <textarea
+              id="comment"
+              name="comment"
+              class="form__fielset fieldset_color-cyan comment"
+              tabindex="18"
+            ></textarea>
+          </div>
+          <div class="form__item form__file">
+            <div class="form__label photo__label">Приложить фото питомца</div>
+            <div>
+              <div class="file__item">
+                <input
+                  id="formPhoto"
+                  accept=".jpg, .png, .gif"
+                  type="file"
+                  name="photo"
+                  class="file__input"
+                  aria-label="add photo"
+                  tabindex="19"
+                />
+                <div
+                  id="choosePhoto"
+                  class="file__button button button_color-gray"
+                >
+                  Выбрать
+                </div>
+              </div>
+              <div id="photoPreview" class="file__preview">
+                <img src="assets/img/cat-default.png" alt="photo" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div id="successMessage" class="form__success"></div>
+        <div id="failMessage" class="form__success form__success-fail"></div>
+
+        <div class="form__buttons">
+          <button
+            id="sendForm"
+            type="submit"
+            class="button button_color-cyan"
+            tabindex="20"
+          >
+            Отправить
+          </button>
+          <button
+            id="resetForm"
+            type="reset"
+            class="button button_color-violetred"
+            tabindex="21"
+          >
+            Сбросить
+          </button>
+        </div>
+        <p class="agreement">
+          Нажимая на кнопку "Отправить", вы даете согласие на обработку
+          персональных данных и соглашаетесь c
+          <a href="#">Политикой конфиденциальности</a>
+        </p>
+      </form>
     </div>
+
     <script src="assets/js/script.js"></script>
   </body>
 </html>
