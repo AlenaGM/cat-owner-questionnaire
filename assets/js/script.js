@@ -116,6 +116,7 @@ document
       document.getElementById("dryfood").setAttribute("checked", "");
     }
   });
+
 document
   .querySelector("#wetcheckbox")
   .addEventListener("keypress", function (e) {
@@ -128,6 +129,7 @@ document
       document.getElementById("wetfood").setAttribute("checked", "");
     }
   });
+
 document
   .querySelector("#natcheckbox")
   .addEventListener("keypress", function (e) {
@@ -140,6 +142,7 @@ document
       document.getElementById("naturalfood").setAttribute("checked", "");
     }
   });
+
 document.querySelector("#maleradio").addEventListener("keypress", function (e) {
   if (
     e.key === "Enter" &&
@@ -151,6 +154,7 @@ document.querySelector("#maleradio").addEventListener("keypress", function (e) {
     document.getElementById("male").setAttribute("checked", "");
   }
 });
+
 document
   .querySelector("#femaleradio")
   .addEventListener("keypress", function (e) {
@@ -193,8 +197,8 @@ document.querySelector("#resetForm").addEventListener("click", function () {
 document.querySelector("#sendForm").addEventListener("click", function (event) {
   event.preventDefault();
 
-  createCatCard();
   sendForm();
+  createCatCard();
   clearForm();
 });
 
@@ -281,8 +285,9 @@ const createCatCard = () => {
   let separateFood = capitalFood.split(",");
   let food = separateFood.join(", ").slice(0, -2);
 
-  //3- Создаем экземпляр котика
+  //3- Создаем экземпляр котика и выводим его в консоль
   let myCat = new Cat(petname, race, sex, food, comment, photo);
+  console.log("Экземпляр котика:", myCat);
 
   if (petname && race && sex && food) {
     //4- Генерируем карточку и добавляем ее на страницу
