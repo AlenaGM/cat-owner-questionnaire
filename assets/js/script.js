@@ -237,10 +237,19 @@ const clearForm = () => {
   let inputs = document.querySelectorAll("input");
 
   inputs.forEach(function (input) {
-    input.value = "";
+    if (
+      input.type == "text" ||
+      input.type == "number" ||
+      input.type == "email" ||
+      input.type == "tel"
+    )
+      input.value = "";
     if (input.type == "checkbox" || input.id == "female") input.checked = false;
     if (input.id == "male") input.checked = true;
   });
+
+  document.getElementById("race").options[0].selected = true;
+  document.getElementById("comment").value = "";
 
   photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
 };
