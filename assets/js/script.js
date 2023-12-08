@@ -107,7 +107,6 @@ document.querySelector("#phone").addEventListener("change", function () {
 const dryfood = document.querySelector("#dryfood");
 const wetfood = document.querySelector("#wetfood");
 const naturalfood = document.querySelector("#naturalfood");
-
 const male = document.querySelector("#male");
 const female = document.querySelector("#female");
 
@@ -181,9 +180,7 @@ function uploadFile(file) {
 }
 
 //4- СБРОС ФОТО КОТИКА И ДАННЫХ ФОРМЫ ПРИ НАЖАТИИ НА КЛАВИШУ "СБРОСИТЬ"
-document.querySelector("#resetForm").addEventListener("click", function () {
-  photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
-});
+document.querySelector("#resetForm").addEventListener("click", clearForm());
 
 //5- ОТПРАВКА ФОРМЫ
 document.querySelector("#sendForm").addEventListener("click", function (event) {
@@ -235,15 +232,13 @@ function clearForm() {
 
   let inputs = document.querySelectorAll("input");
 
-  inputs.forEach(function (input) {
-    if (input.type == "checkbox" || input.id == "female") {
+  for (const input of inputs) {
+    if (input.type == "checkbox" || input.id == "female")
       input.removeAttribute("checked", "");
-    }
-    if (input.id == "male") {
-      input.addAttribute("checked", "");
-    }
-  });
+    if (input.id == "male") input.setAttribute("checked", "");
+  }
 
+  //document.querySelector("#male").setAttribute("checked", "");
   photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
 }
 
@@ -255,11 +250,7 @@ const createCatInstance = () => {
   const comment = document.querySelector("#comment").value;
 
   let sex = "";
-  let food = [];
-
-  const dryfood = document.querySelector("#dryfood");
-  const wetfood = document.querySelector("#wetfood");
-  const naturalfood = document.querySelector("#naturalfood");
+  let foodArr = [];
 
   for (let radio of document.querySelectorAll('input[name="sex"]')) {
     if (radio.checked) {
@@ -267,17 +258,13 @@ const createCatInstance = () => {
     }
   }
 
-  if (dryfood.checked) {
-    food.push(dryfood.value);
+  for (const checkbox of document.querySelectorAll('input[name="food"]')) {
+    if (checkbox.checked) {
+      foodArr.push(checkbox.value);
+    }
   }
 
-  if (wetfood.checked) {
-    food.push(wetfood.value);
-  }
-
-  if (naturalfood.checked) {
-    food.push(naturalfood.value);
-  }
+  const food = foodArr.join(", ");
 
   //2- Создаем экземпляр котика и выводим его в консоль
   let myCat = new Cat(petname, race, sex, food, comment, photo);
@@ -294,10 +281,10 @@ const createCatInstance = () => {
 //КЛАСС КОТИК
 class Cat {
   constructor(petname, race, sex, food, comment, photo) {
-    this.petname = petname;
+    this.petname = petname || "анонимный котик";
     this.race = race || "порода не выбрана";
-    this.sex = sex;
-    this.food = food;
+    this.sex = sex || "самец";
+    this.food = food || "питание не указано";
     this.comment = comment || "нет комментариев";
     this.photo = photo || "фото не загружено";
   }
