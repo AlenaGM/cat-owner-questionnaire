@@ -219,7 +219,7 @@ function addSuccess() {
 function addFail() {
   document.getElementById(
     "failMessage"
-  ).innerHTML = `Информация не была отправлена! Проверьте, правильно ли заполнены поля анкеты`;
+  ).innerHTML = `Информация не была отправлена! \nПроверьте, правильно ли заполнены поля анкеты`;
 }
 
 function checkValidity() {
@@ -227,7 +227,6 @@ function checkValidity() {
 }
 
 function clearForm() {
-  console.log("все чисто");
   document.querySelector("#form").reset();
 
   let inputs = document.querySelectorAll("input");
@@ -238,7 +237,6 @@ function clearForm() {
     if (input.id == "male") input.setAttribute("checked", "");
   }
 
-  //document.querySelector("#male").setAttribute("checked", "");
   photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
 }
 
