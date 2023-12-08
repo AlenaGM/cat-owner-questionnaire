@@ -189,7 +189,6 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
   event.preventDefault();
 
   createCatInstance();
-  checkValidity();
   sendForm();
   clearForm();
 });
@@ -208,7 +207,7 @@ const sendForm = () => {
     .then(() => addSuccess())
     .catch((error) => {
       addFail();
-      console.log(error.value);
+      console.log(error);
     });
 };
 
@@ -222,10 +221,6 @@ function addFail() {
   document.getElementById(
     "failMessage"
   ).innerHTML = `Информация не была отправлена! \nПроверьте, правильно ли заполнены поля анкеты`;
-}
-
-function checkValidity() {
-  console.log("все верно");
 }
 
 function clearForm() {
