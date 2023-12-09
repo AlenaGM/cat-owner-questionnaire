@@ -1,23 +1,24 @@
 "use strict";
+const catForm = document.forms.catForm;
 
 //1- ПРИВЕДЕНИЕ НАПИСАНИЯ ИМЕН СОБСТВЕННЫХ К КРАСИВОМУ ВИДУ
 
 //1.1- Имя с большой буквы (Александра, Анна-Мария)
-document.getElementById("firstName").addEventListener("change", function () {
-  const firstNames = document.getElementById("firstName").value;
-  document.querySelector("#firstName").value = capitalizeNames(firstNames);
+catForm.elements.firstname.addEventListener("change", function () {
+  const firstNames = catForm.elements.firstname.value;
+  catForm.elements.firstname.value = capitalizeNames(firstNames);
 });
 
 //1.2- Фамилия с большой буквы (Петров, Петров-Водкин)
-document.getElementById("lastName").addEventListener("change", function () {
-  const lastNames = document.getElementById("lastName").value;
-  document.querySelector("#lastName").value = capitalizeNames(lastNames);
+catForm.elements.lastname.addEventListener("change", function () {
+  const lastNames = catForm.elements.lastname.value;
+  catForm.elements.lastname.value = capitalizeNames(lastNames);
 });
 
 //1.3- Кличка кота с большой буквы (Мурзик, Франсуа-Ксавье)
-document.getElementById("petName").addEventListener("change", function () {
-  const petNames = document.getElementById("petName").value;
-  document.querySelector("#petName").value = capitalizeNames(petNames);
+catForm.elements.petname.addEventListener("change", function () {
+  const petNames = catForm.elements.petname.value;
+  catForm.elements.petname.value = capitalizeNames(petNames);
 });
 
 const capitalizeNames = function (name) {
@@ -32,28 +33,22 @@ const capitalizeNames = function (name) {
 //1.4- Улица с большой буквы
 // сделала только заглавную первую букву, так как очень много нестандартных вариантов типа
 //"бульвар имени Карла Либкнехта и Розы Люксембург" или "5-я линия Васильевского острова"
-document.getElementById("street").addEventListener("change", function () {
-  const street = document.getElementById("street").value.trim().toLowerCase();
-  document.querySelector("#street").value =
-    street[0].toUpperCase() + street.slice(1); //Ленина
+catForm.elements.street.addEventListener("change", function () {
+  const street = catForm.elements.street.value.trim().toLowerCase();
+  catForm.elements.street.value = street[0].toUpperCase() + street.slice(1); //Ленина
 });
 
 //1.5- Дом в верхнем регистре (45-А)
-document.getElementById("house").addEventListener("change", function () {
-  document.querySelector("#house").value = document
-    .getElementById("house")
-    .value.trim()
+catForm.elements.house.addEventListener("change", function () {
+  catForm.elements.house.value = catForm.elements.house.value
+    .trim()
     .toUpperCase();
 });
 
 //1.6- Город с заглавной буквы, заглавные буквы в составных названиях
 //(Петрозаводск, Великий Устюг, Йошкар-Ола, Комсомольск-на-Амуре, Ла Рош-сюр-Форон)
-document.getElementById("city").addEventListener("change", function () {
-  const cityParts = document
-    .getElementById("city")
-    .value.trim()
-    .toLowerCase()
-    .split(" ");
+catForm.elements.city.addEventListener("change", function () {
+  const cityParts = catForm.elements.city.value.trim().toLowerCase().split(" ");
 
   const cityUpper = [];
   for (const part of cityParts) {
@@ -63,23 +58,22 @@ document.getElementById("city").addEventListener("change", function () {
   const city = cityUpper.join(" ");
   const cityIndex = city.lastIndexOf("-") + 1;
 
-  document.querySelector("#city").value =
+  catForm.elements.city.value =
     city.slice(0, cityIndex) +
     city[cityIndex].toUpperCase() +
     city.slice(cityIndex + 1);
 });
 
 //1.7- Эл.почта в нижнем регистре
-document.getElementById("email").addEventListener("change", function () {
-  document.querySelector("#email").value = document
-    .getElementById("email")
-    .value.trim()
+catForm.elements.email.addEventListener("change", function () {
+  catForm.elements.email.value = catForm.elements.email.value
+    .trim()
     .toLowerCase();
 });
 
 //1.8- Красивый номер мобильного тел.
-document.querySelector("#phone").addEventListener("change", function () {
-  let phone = document.querySelector("#phone").value;
+catForm.elements.phone.addEventListener("change", function () {
+  let phone = catForm.elements.phone.value;
   let digits = phone.split("");
 
   if (phone.length == 10) {
@@ -100,7 +94,7 @@ document.querySelector("#phone").addEventListener("change", function () {
   }
 
   let almostPhone = digits.join("");
-  document.querySelector("#phone").value = "+7" + almostPhone.slice(-14);
+  catForm.elements.phone.value = "+7" + almostPhone.slice(-14);
 });
 
 //2- UX: ПРИ ПЕРЕМЕЩЕНИЯМИ МЕЖДУ РАДИОКНОПКАМИ/ЧЕКБОКСАМИ С ПОМОЩЬЮ ТАБУЛЯЦИИ ПРИ НАЖАТИИ "ВВОД" ВЫБИРАЕТСЯ ОПЦИЯ
@@ -189,7 +183,7 @@ document.querySelector("#sendForm").addEventListener("click", function (event) {
   event.preventDefault();
 
   createCatInstance();
-  sendForm();
+  //sendForm();
   clearForm();
 });
 
@@ -204,9 +198,9 @@ const sendForm = () => {
   })
     .then((response) => response.json())
     .then(console.log("отправили форму"))
-    .then(() => addSuccess())
+    //.then(() => addSuccess())
     .catch((error) => {
-      addFail();
+      //addFail();
       console.log(error);
     });
 };
@@ -224,7 +218,7 @@ function addFail() {
 }
 
 function clearForm() {
-  document.querySelector("#form").reset();
+  catForm.reset();
 
   let inputs = document.querySelectorAll("input");
 
@@ -240,20 +234,20 @@ function clearForm() {
 //6- СОЗДАНИЕ ЭКЗЕМПЛЯРА КОТИКА, ВЫВОД В КОНСОЛЬ И СОХРАНЕНИЕ В LOCAL STORAGE
 const createCatInstance = () => {
   //1-Собираем данные
-  const petname = document.getElementById("petName").value;
-  const race = document.querySelector("select[name='race']").value;
-  const comment = document.querySelector("#comment").value;
+  const petname = catForm.elements.petname.value;
+  const race = catForm.elements.race.value;
+  const comment = catForm.elements.comment.value;
 
   let sex = "";
   let foodArr = [];
 
-  for (let radio of document.querySelectorAll('input[name="sex"]')) {
+  for (let radio of catForm.elements.sex) {
     if (radio.checked) {
       sex = radio.value;
     }
   }
 
-  for (const checkbox of document.querySelectorAll('input[name="food"]')) {
+  for (const checkbox of catForm.elements.food) {
     if (checkbox.checked) {
       foodArr.push(checkbox.value);
     }
