@@ -18,7 +18,7 @@
     <div class="form">
       <form
         method="post"
-        action="/post"
+        action="https://itgirlschool.com/form-handler"
         id="form"
         class="form__body"
         name="catForm"
@@ -32,11 +32,11 @@
         </div>
         <h1 class="form__title">Анкета владельца кошки</h1>
 
-        <fieldset class="form__fielset">
-          <legend class="form__legend">Сведения о владельце</legend>
+        <fieldset class="form__fieldset fieldset">
+          <legend class="form__legend legend">Сведения о владельце</legend>
 
-          <p class="reqtext">* Поля, обязательные к заполнению</p>
-          <p class="reqtext">** Пожалуйста, заполняйте кириллицей</p>
+          <p class="form__reqtext">* Поля, обязательные к заполнению</p>
+          <p class="form__reqtext">** Пожалуйста, заполняйте кириллицей</p>
 
           <div class="form__item">
             <label for="firstName" class="form__label">Имя *</label>
@@ -67,8 +67,8 @@
             />
           </div>
 
-          <fieldset class="form__fielset fieldset_color-cyan">
-            <legend class="form__legend legend_color-cyan">Адрес</legend>
+          <fieldset class="form__fieldset fieldset fieldset_color-cyan">
+            <legend class="form__legend legend legend_color-cyan">Адрес</legend>
 
             <div class="form__item">
               <label for="street" class="form__label">Улица *</label>
@@ -154,7 +154,7 @@
             />
           </div>
           <div class="form__item">
-            <label for="phone" class="form__label">Моб.тел.</label>
+            <label for="phone" class="form__label">Моб.тел. *</label>
             <input
               type="tel"
               name="phone"
@@ -163,13 +163,14 @@
               minlength="10"
               maxlength="13"
               pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+              required
               tabindex="10"
             />
           </div>
         </fieldset>
 
-        <fieldset class="form__fielset">
-          <legend class="form__legend">Сведения о питомце</legend>
+        <fieldset class="form__fieldset fieldset">
+          <legend class="form__legend legend">Сведения о питомце</legend>
 
           <div class="form__item">
             <label for="petName" class="form__label">Кличка *</label>
@@ -192,7 +193,7 @@
               <option value="неизвестная">не знаю породы</option>
               <option value="абиссинская">абиссинская</option>
               <option value="американская короткошерстная">
-                Американская короткошерстная
+                американская короткошерстная
               </option>
               <option value="бенгальская">бенгальская</option>
               <option value="бирманская">бирманская</option>
@@ -208,7 +209,7 @@
           </div>
           <div class="form__item">
             <div class="form__label">Питание</div>
-            <div class="form__checkbox">
+            <div class="form__checkbox checkbox">
               <div class="checkbox__item" id="drycheckbox" tabindex="13">
                 <input
                   id="dryfood"
@@ -244,7 +245,7 @@
           </div>
           <div class="form__item">
             <div class="form__label">Пол *</div>
-            <div class="form__radio">
+            <div class="form__radio radio">
               <div class="radio__item" id="maleradio" tabindex="16">
                 <input
                   id="male"
@@ -268,21 +269,21 @@
               </div>
             </div>
           </div>
-          <div class="form__item form__comment">
+          <div class="form__item form__comment comment">
             <label
               for="comment"
-              class="form__legend legend_color-cyan comment__label"
+              class="form__legend legend legend_color-cyan comment__label"
               >Ваш комментарий</label
             >
             <textarea
               id="comment"
               name="comment"
-              class="form__fielset fieldset_color-cyan comment"
+              class="form__fielset fieldset fieldset_color-cyan comment__textarea"
               tabindex="18"
             ></textarea>
           </div>
-          <div class="form__item form__file">
-            <div class="form__label photo__label">Приложить фото питомца</div>
+          <div class="form__item form__file file">
+            <div class="form__label file__label">Приложить фото питомца</div>
             <div>
               <div class="file__item">
                 <input
@@ -294,10 +295,7 @@
                   aria-label="add photo"
                   tabindex="19"
                 />
-                <div
-                  id="choosePhoto"
-                  class="file__button button button_color-gray"
-                >
+                <div id="choosePhoto" class="button button_color-gray">
                   Выбрать
                 </div>
               </div>
@@ -313,14 +311,6 @@
 
         <div class="form__buttons">
           <button
-            id="sendForm"
-            type="submit"
-            class="button button_color-cyan"
-            tabindex="20"
-          >
-            Отправить
-          </button>
-          <button
             id="resetForm"
             type="reset"
             class="button button_color-violetred"
@@ -328,8 +318,16 @@
           >
             Сбросить
           </button>
+          <button
+            id="sendForm"
+            type="submit"
+            class="button button_color-cyan"
+            tabindex="20"
+          >
+            Отправить
+          </button>
         </div>
-        <p class="agreement">
+        <p class="form__agreement">
           Нажимая на кнопку "Отправить", вы даете согласие на обработку
           персональных данных и соглашаетесь c
           <a href="#">Политикой конфиденциальности</a>

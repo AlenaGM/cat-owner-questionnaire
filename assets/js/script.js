@@ -5,28 +5,30 @@ const catForm = document.forms.catForm;
 
 //1.1- Имя с большой буквы (Александра, Анна-Мария)
 catForm.elements.firstname.addEventListener("change", function () {
-  const firstNames = catForm.elements.firstname.value;
+  const firstNames = catForm.elements.firstname.value || "Имя не заполнено!";
   catForm.elements.firstname.value = capitalizeNames(firstNames);
 });
 
-//1.2- Фамилия с большой буквы (Петров, Петров-Водкин)
+//1.2- Фамилия с большой буквы (Петров, Петров-В одкин)
 catForm.elements.lastname.addEventListener("change", function () {
-  const lastNames = catForm.elements.lastname.value;
+  const lastNames = catForm.elements.lastname.value || "Фамилия не заполнена!";
   catForm.elements.lastname.value = capitalizeNames(lastNames);
 });
 
 //1.3- Кличка кота с большой буквы (Мурзик, Франсуа-Ксавье)
 catForm.elements.petname.addEventListener("change", function () {
-  const petNames = catForm.elements.petname.value;
+  const petNames = catForm.elements.petname.value || "Кличка не заполнена!";
   catForm.elements.petname.value = capitalizeNames(petNames);
 });
 
 const capitalizeNames = function (name) {
   const names = name.trim().toLowerCase().split("-");
   const namesUpper = [];
+
   for (const n of names) {
-    namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n[0]?.toUpperCase() + n.slice(1));
   }
+
   return namesUpper.join("-");
 };
 
@@ -34,7 +36,8 @@ const capitalizeNames = function (name) {
 // сделала только заглавную первую букву, так как очень много нестандартных вариантов типа
 //"бульвар имени Карла Либкнехта и Розы Люксембург" или "5-я линия Васильевского острова"
 catForm.elements.street.addEventListener("change", function () {
-  const street = catForm.elements.street.value.trim().toLowerCase();
+  const street =
+    catForm.elements.street.value.trim().toLowerCase() || "Улица не заполнена!";
   catForm.elements.street.value = street[0].toUpperCase() + street.slice(1); //Ленина
 });
 
@@ -48,7 +51,9 @@ catForm.elements.house.addEventListener("change", function () {
 //1.6- Город с заглавной буквы, заглавные буквы в составных названиях
 //(Петрозаводск, Великий Устюг, Йошкар-Ола, Комсомольск-на-Амуре, Ла Рош-сюр-Форон)
 catForm.elements.city.addEventListener("change", function () {
-  const cityParts = catForm.elements.city.value.trim().toLowerCase().split(" ");
+  const cityInit =
+    catForm.elements.city.value.trim().toLowerCase() || "Город не заполнен!";
+  const cityParts = cityInit.split(" ");
 
   const cityUpper = [];
   for (const part of cityParts) {
@@ -176,14 +181,16 @@ function uploadFile(file) {
 }
 
 //4- СБРОС ФОТО КОТИКА И ДАННЫХ ФОРМЫ ПРИ НАЖАТИИ НА КЛАВИШУ "СБРОСИТЬ"
-document.querySelector("#resetForm").addEventListener("click", clearForm());
+catForm.addEventListener("reset", function () {
+  clearForm();
+});
 
 //5- ОТПРАВКА ФОРМЫ
-document.querySelector("#sendForm").addEventListener("click", function (event) {
+catForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   createCatInstance();
-  //sendForm();
+  sendForm();
   clearForm();
 });
 
@@ -197,15 +204,15 @@ const sendForm = () => {
     },
   })
     .then((response) => response.json())
-    .then(console.log("отправили форму"))
-    //.then(() => addSuccess())
+    .then(() => addSuccess())
     .catch((error) => {
-      //addFail();
-      console.log(error);
+      addFail();
+      console.log(`Error: ${error.message}`);
     });
 };
 
 function addSuccess() {
+  console.log("Форма отправлена");
   document.getElementById(
     "successMessage"
   ).innerHTML = `Информация о вашем котике отправлена!`;
@@ -214,7 +221,7 @@ function addSuccess() {
 function addFail() {
   document.getElementById(
     "failMessage"
-  ).innerHTML = `Информация не была отправлена! \nПроверьте, правильно ли заполнены поля анкеты`;
+  ).innerHTML = `Информация не была отправлена! Проверьте, правильно ли заполнены поля анкеты`;
 }
 
 function clearForm() {
@@ -229,6 +236,9 @@ function clearForm() {
 
   document.querySelector("#male").setAttribute("checked", "");
   photoPreview.innerHTML = `<img src='assets/img/cat-default.png' alt="photo"'>`;
+
+  document.getElementById("successMessage").innerHTML = ``;
+  document.getElementById("failMessage").innerHTML = ``;
 }
 
 //6- СОЗДАНИЕ ЭКЗЕМПЛЯРА КОТИКА, ВЫВОД В КОНСОЛЬ И СОХРАНЕНИЕ В LOCAL STORAGE
@@ -236,16 +246,10 @@ const createCatInstance = () => {
   //1-Собираем данные
   const petname = catForm.elements.petname.value;
   const race = catForm.elements.race.value;
+  let sex = catForm.elements.sex.value;
   const comment = catForm.elements.comment.value;
 
-  let sex = "";
   let foodArr = [];
-
-  for (let radio of catForm.elements.sex) {
-    if (radio.checked) {
-      sex = radio.value;
-    }
-  }
 
   for (const checkbox of catForm.elements.food) {
     if (checkbox.checked) {
@@ -264,7 +268,7 @@ const createCatInstance = () => {
     `Cats Collection : ${myCat.petname}`,
     JSON.stringify(myCat)
   );
-  console.log("добавили котика в локальное хранилище");
+  console.log("Экземпляр котика также добавлен в локальное хранилище");
 };
 
 //КЛАСС КОТИК
