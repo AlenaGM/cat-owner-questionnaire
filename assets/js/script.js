@@ -43,9 +43,9 @@ catForm.elements.street.addEventListener("change", function () {
 
 //1.5- Дом в верхнем регистре (45-А)
 catForm.elements.house.addEventListener("change", function () {
-  catForm.elements.house.value = catForm.elements.house.value
-    .trim()
-    .toUpperCase();
+  catForm.elements.house.value =
+    catForm.elements.house.value.trim().toUpperCase() ||
+    "Номер дома не заполнен!";
 });
 
 //1.6- Город с заглавной буквы, заглавные буквы в составных названиях
@@ -71,9 +71,9 @@ catForm.elements.city.addEventListener("change", function () {
 
 //1.7- Эл.почта в нижнем регистре
 catForm.elements.email.addEventListener("change", function () {
-  catForm.elements.email.value = catForm.elements.email.value
-    .trim()
-    .toLowerCase();
+  catForm.elements.email.value =
+    catForm.elements.email.value.trim().toLowerCase() ||
+    "Эл.почта не заполнена!";
 });
 
 //1.8- Красивый номер мобильного тел.
