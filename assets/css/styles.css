@@ -227,9 +227,6 @@ body {
   z-index: 1;
 }
 
-.file__button {
-}
-
 .file__preview {
   max-width: 120px;
   padding: 12px 0px 0px 0px;
