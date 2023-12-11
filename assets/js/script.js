@@ -5,20 +5,26 @@ const catForm = document.forms.catForm;
 
 //1.1- Имя с большой буквы (Александра, Анна-Мария)
 catForm.elements.firstname.addEventListener("change", function () {
-  const firstNames = catForm.elements.firstname.value || "Имя не заполнено!";
-  catForm.elements.firstname.value = capitalizeNames(firstNames);
+  const firstNames = catForm.elements.firstname.value;
+  catForm.elements.firstname.value = capitalizeNames(
+    firstNames || "Имя не заполнено!"
+  );
 });
 
 //1.2- Фамилия с большой буквы (Петров, Петров-В одкин)
 catForm.elements.lastname.addEventListener("change", function () {
-  const lastNames = catForm.elements.lastname.value || "Фамилия не заполнена!";
-  catForm.elements.lastname.value = capitalizeNames(lastNames);
+  const lastNames = catForm.elements.lastname.value;
+  catForm.elements.lastname.value = capitalizeNames(
+    lastNames || "Фамилия не заполнена!"
+  );
 });
 
 //1.3- Кличка кота с большой буквы (Мурзик, Франсуа-Ксавье)
 catForm.elements.petname.addEventListener("change", function () {
-  const petNames = catForm.elements.petname.value || "Кличка не заполнена!";
-  catForm.elements.petname.value = capitalizeNames(petNames);
+  const petNames = catForm.elements.petname.value;
+  catForm.elements.petname.value = capitalizeNames(
+    petNames || "Кличка не заполнена!"
+  );
 });
 
 const capitalizeNames = function (name) {
@@ -28,7 +34,6 @@ const capitalizeNames = function (name) {
   for (const n of names) {
     namesUpper.push(n[0]?.toUpperCase() + n.slice(1));
   }
-
   return namesUpper.join("-");
 };
 
