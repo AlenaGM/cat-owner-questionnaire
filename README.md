@@ -1,24 +1,27 @@
-# Cat-Owner-Questionnaire :cat:
-_JavaScript Form created on 2nd week of studying at [ITGirlSchool] (study subject: "HTML5 form tags") and upgraded on week 18 ("Form validation"), week 19 ("OOP") and week 21 ("GET and POST requests")_
+# Cat Owner Questionnaire :cat:
 
-A basic form with _text fields, select, checkbox, radio buttons, etc._ was built to train HTML5 form tags at the very beginning of code learning. 
+_JavaScript Form_
 
-It was improved by adding _HTML5 form-validation_ and _autoformatting of inputs with text, phone and e-mail_ on week 18. I also made layout responsive and added possibility to load and preview pet photo.
+This JavaScript Form was created during the 2nd week of studying at [ITGirlSchool], focusing on the study subject of "HTML5 form tags". It has since been upgraded during weeks 18 ("Form validation"), 19 ("OOP"), and 21 ("GET and POST requests").
 
-Week 19 upgrade consisted in creating a _`Cat` class_ with properties that correspond the questionnaire data, as well as creating the _objects of this class_ and _storing result in Local storage._
+Initially, I built a basic form with _input fields, select, checkbox, radio buttons, and more_ to practice using HTML5 form tags.
 
-21st week upgrade were: POST-request realised with FormData and JS form-validation prior to form-sending. 
+In week 18, I improved the form by adding _HTML5 form validation_ and _autoformatting for text, phone, and email inputs_. I also made the layout responsive and added the ability to load and preview pet photos.
+
+During week 19, I upgraded the form by creating a _`Cat` class_ with properties that correspond to the questionnaire data. I also created an _instance of this class_ and _stored it in Local Storage_.
+
+In week 21, I implemented a _POST-request_ using _FormData_ for form submission.
 
 ## Demo
-[Cat-Owner-Questionnaire]
+[cat-owner-questionnaire]
 
 ## Tech stack
 
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; HTML5<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; CSS3<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; JavaScript<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; Form validation<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; GET&POST requests<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; HTML5 form validation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; POST requests<br> 
 &nbsp;&nbsp;&nbsp;&nbsp;&check;&nbsp;&nbsp; FormData()<br> 
 
 ## Result
@@ -31,4 +34,4 @@ Week 19 upgrade consisted in creating a _`Cat` class_ with properties that corre
   
 
    [ITGirlSchool]: <https://itgirlschool.com/en>
-   [Cat-Owner-Questionnaire]: <https://alenagm.github.io/Cat-Owner-Questionnaire/>
+   [cat-owner-questionnaire]: <https://alenagm.github.io/cat-owner-questionnaire/>
