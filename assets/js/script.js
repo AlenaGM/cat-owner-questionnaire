@@ -32,7 +32,7 @@ const capitalizeNames = function (name) {
   const namesUpper = [];
 
   for (const n of names) {
-    namesUpper.push(n[0]?.toUpperCase() + n.slice(1));
+    namesUpper.push(n[0].toUpperCase() + n.slice(1));
   }
   return namesUpper.join("-");
 };
